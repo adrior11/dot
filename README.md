@@ -1,4 +1,4 @@
-#Dot Files
+# Dot Files
 
 You can find my Neovim dot files [here](https://github.com/adrior11/dot/tree/main/.config/nvim)
 
