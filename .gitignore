@@ -1,0 +1,12 @@
+*
+!.gitignore
+!.bashrc
+!.config/
+!.config/nvim/
+!.config/nvim/**
+!.config/yabai/
+!.config/yabai/**
+!.config/skhd/
+!.config/skhd/**
+.config/nvim/lua/config/plugins/wtf.lua
+.DS_Store
