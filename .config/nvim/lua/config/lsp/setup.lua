@@ -1,8 +1,6 @@
--- Import required modules
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 
--- Setup Mason
 mason.setup()
 
 -- Setup Mason LSPconfig
@@ -10,7 +8,6 @@ mason_lspconfig.setup({
     ensure_installed = {
         "lua_ls",
         "pyright",
-        --"rust_analyzer",
         "bashls",
         "clangd",
         "jsonls",
@@ -28,7 +25,6 @@ local function setup_servers()
     local servers = {
         "lua_ls",
         "pyright",
-        --"rust_analyzer",
         "bashls",
         "clangd",
         "jsonls",
