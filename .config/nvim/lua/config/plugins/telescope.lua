@@ -5,27 +5,9 @@ return {
 
     dependencies = {
         "nvim-lua/plenary.nvim",
-        -- "catppuccin/nvim"
     },
 
     config = function()
-        -- local catppuccin = require("catppuccin")
-
-        -- Apply Catppuccin theme to Telescope
-        -- catppuccin.setup({
-            --flavour = "mocha",
-            --integrations = {
-                --telescope = true,
-            --},
-            --color_overrides = {
-                --mocha = {
-                    --green = "#94e2d5",
-                --},
-            --},
-        --})
-
-        --require("catppuccin").load()
-
         require('telescope').setup({})
 
         local builtin = require('telescope.builtin')

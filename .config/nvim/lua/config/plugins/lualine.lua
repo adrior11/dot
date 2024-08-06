@@ -20,11 +20,17 @@ return {
             mode_v = "#d79921", -- neutral_yellow
             mode_r = "#cc241d", -- neutral_red
             mode_c = "#b16286", -- neutral_purple
-            branch_fg = "#98971a", -- neutral_green
-            branch_bg = "#282828", -- dark0
+            branch_fg = "#ebdbb2", -- neutral_green
+            branch_bg = "#3c3836", -- dark0
             diff_add = "#b8bb26", -- bright_green
             diff_change = "#fabd2f", -- bright_yellow
             diff_remove = "#fb4934", -- bright_red
+        }
+
+        local custom_branch = {
+            "branch",
+            icon = "", -- Change this to the desired icon
+            color = { fg = gruvbox_colors.branch_fg, bg = gruvbox_colors.branch_bg },
         }
 
         require("lualine").setup({
@@ -53,7 +59,7 @@ return {
             },
             sections = {
                 lualine_a = { "mode" },
-                lualine_b = { "branch", "diff", "diagnostics" },
+                lualine_b = { custom_branch, "diff", "diagnostics" },
                 lualine_c = {
                     '%=', -- make the indicator center
                     {
@@ -73,7 +79,7 @@ return {
                         cond = function()
                             return require("noice").api.status.command.has()
                         end,
-                        color = color_util.fg("Statement"),
+                        color = color_util.fg("Comment"),
                     },
                     {
                         function()

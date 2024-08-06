@@ -20,10 +20,10 @@ return {
             matches = true,
             priority = 5000,
             groups = {
-                match = "FlashBackdrop",  -- Use the custom highlight group for matches
+                match = "FlashBackdrop",
                 current = "FlashCurrent",
                 backdrop = "FlashBackdrop",
-                label = "FlashCursor",  -- Use the custom highlight group for labels
+                label = "FlashCursor",
             },
         },
     },

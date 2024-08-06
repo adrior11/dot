@@ -2,6 +2,7 @@ return {
     settings = {
         Lua = {
             diagnostics = {
+                -- FIX: Suppress vim warning
                 globals = { "vim" },
             },
             workspace = {

@@ -1,4 +1,3 @@
--- Define the on_attach function
 return function(_, bufnr)
     local buf_map = vim.api.nvim_buf_set_keymap
     local opts = { noremap = true, silent = true }

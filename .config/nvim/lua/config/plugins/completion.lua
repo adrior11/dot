@@ -1,5 +1,4 @@
 return {
-    -- nvim-cmp and dependencies
     {
         "hrsh7th/nvim-cmp",
         dependencies = {
