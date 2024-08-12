@@ -20,8 +20,10 @@ return {
                 "bash",
                 "markdown",
                 "markdown_inline",
-                "swift"
+                "html",
+                "swift",
             }
+
             vim.list_extend(opts.ensure_installed, languages)
         end,
     },

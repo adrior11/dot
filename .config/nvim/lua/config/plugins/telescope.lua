@@ -14,17 +14,17 @@ return {
 	    local keymap = vim.keymap
 
 
-        keymap.set('n', '<leader>pf', builtin.find_files, {})
+        keymap.set('n', '<leader>[f', builtin.find_files, {})
         keymap.set('n', '<C-p>', builtin.git_files, {})
-        keymap.set('n', '<leader>pws', function()
+        keymap.set('n', '<leader>[ws', function()
             local word = vim.fn.expand("<cword>")
             builtin.grep_string({ search = word })
         end)
-        keymap.set('n', '<leader>pWs', function()
+        keymap.set('n', '<leader>[Ws', function()
             local word = vim.fn.expand("<cWORD>")
             builtin.grep_string({ search = word })
         end)
-        keymap.set('n', '<leader>ps', function()
+        keymap.set('n', '<leader>[s', function()
             builtin.grep_string({ search = vim.fn.input("Grep > ") })
         end)
         keymap.set('n', '<leader>vh', builtin.help_tags, {})

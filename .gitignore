@@ -9,4 +9,5 @@
 !.config/skhd/
 !.config/skhd/**
 .config/nvim/lua/config/plugins/wtf.lua
+.config/nvim/pack/
 .DS_Store
