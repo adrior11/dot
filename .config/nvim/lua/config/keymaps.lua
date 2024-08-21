@@ -52,3 +52,5 @@ vim.keymap.set('n', '<leader>O', function()
   vim.cmd('normal! O')
 end, { noremap = true, silent = true })
 
+-- Open Copilot panel
+vim.keymap.set("n", "<leader>cp", ":Copilot panel<CR>", { noremap = true, silent = true })

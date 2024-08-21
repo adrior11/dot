@@ -16,6 +16,7 @@ mason_lspconfig.setup({
         "zls",
         "hls",
         "marksman",
+        "tsserver",
     },
 })
 
@@ -33,6 +34,7 @@ local function setup_servers()
         "zls",
         "hls",
         "marksman",
+        "tsserver",
     }
 
     for _, server in ipairs(servers) do
@@ -48,6 +50,24 @@ local function setup_servers()
         end
 
         lspconfig[server].setup(opts)
+    end
+
+    -- TEST:  
+    vim.g.rustaceanvim = function()
+        -- Update this path
+        local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/'
+        local codelldb_path = extension_path .. 'adapter/codelldb'
+        local liblldb_path = extension_path .. 'lldb/lib/liblldb'
+        local this_os = vim.uv.os_uname().sysname;
+
+        liblldb_path = liblldb_path .. (this_os == "Linux" and ".so" or ".dylib")
+
+        local cfg = require('rustaceanvim.config')
+        return {
+            dap = {
+                adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
+            },
+        }
     end
 end
 

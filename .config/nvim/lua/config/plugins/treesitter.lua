@@ -22,6 +22,8 @@ return {
                 "markdown_inline",
                 "html",
                 "swift",
+                "wgsl",
+                "wgsl_bevy",
             }
 
             vim.list_extend(opts.ensure_installed, languages)
