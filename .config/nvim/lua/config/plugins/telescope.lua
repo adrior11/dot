@@ -8,26 +8,32 @@ return {
     },
 
     config = function()
-        require('telescope').setup({})
+        require('telescope').setup({
+            defaults = {
+                layout_strategy = 'vertical',
+                layout_config = {
+                    vertical = {
+                        mirror = true,
+                        preview_height = 0.5,
+                        prompt_position = 'top',
+                    },
+                },
+            },
+        })
 
         local builtin = require('telescope.builtin')
 	    local keymap = vim.keymap
 
-
-        keymap.set('n', '<leader>[f', builtin.find_files, {})
-        keymap.set('n', '<C-p>', builtin.git_files, {})
-        keymap.set('n', '<leader>[ws', function()
-            local word = vim.fn.expand("<cword>")
-            builtin.grep_string({ search = word })
+        keymap.set('n', '<leader>ff', builtin.find_files, {})
+        keymap.set('n', '<C-f>', builtin.git_files, {})
+        keymap.set('n', '<leader>fg', function()
+            builtin.live_grep({
+                prompt_title = 'Grep >',
+                grep_open_files = false
+            })
         end)
-        keymap.set('n', '<leader>[Ws', function()
-            local word = vim.fn.expand("<cWORD>")
-            builtin.grep_string({ search = word })
-        end)
-        keymap.set('n', '<leader>[s', function()
-            builtin.grep_string({ search = vim.fn.input("Grep > ") })
-        end)
-        keymap.set('n', '<leader>vh', builtin.help_tags, {})
+        keymap.set('n', '<leader>fn', ':Telescope notify<CR>')
+        keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
         -- Harpoon and Telescope integration
         local harpoon = require('harpoon')

@@ -5,7 +5,7 @@ return {
     },
     {
         "ibhagwan/fzf-lua",
-        dependencies = { "nvim-tree/nvim-web-devicons" }, -- optional, for file icons
+        dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("fzf-lua").setup({
                 winopts = {
@@ -21,11 +21,10 @@ return {
                 },
             })
 
-            -- Example key mappings
-            vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<CR>", {silent = true, noremap = true})
-            vim.keymap.set("n", "<leader>fg", "<cmd>FzfLua live_grep<CR>", {silent = true, noremap = true})
-            vim.keymap.set("n", "<leader>fb", "<cmd>FzfLua buffers<CR>", {silent = true, noremap = true})
-            vim.keymap.set("n", "<leader>fh", "<cmd>FzfLua help_tags<CR>", {silent = true, noremap = true})
+            vim.keymap.set("n", "<leader>Ff", "<cmd>FzfLua files<CR>", {silent = true, noremap = true})
+            vim.keymap.set("n", "<leader>Fg", "<cmd>FzfLua live_grep<CR>", {silent = true, noremap = true})
+            vim.keymap.set("n", "<leader>Fb", "<cmd>FzfLua buffers<CR>", {silent = true, noremap = true})
+            vim.keymap.set("n", "<leader>Fh", "<cmd>FzfLua help_tags<CR>", {silent = true, noremap = true})
         end
     }
 }

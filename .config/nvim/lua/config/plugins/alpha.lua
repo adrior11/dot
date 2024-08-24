@@ -26,10 +26,10 @@ return {
         dashboard.section.buttons.val = {
             dashboard.button("rs", "Last sessions", ":SessionRestore<CR>"),
             dashboard.button("e", "Harpoon", "<cmd>lua require'telescope'.extensions.harpoon.marks()<CR>"),
-            dashboard.button("pf", "Find file", ":Telescope find_files<CR>"),
+            dashboard.button("ff", "Find file", ":Telescope find_files<CR>"),
             dashboard.button("fg", "Live grep", "<cmd>FzfLua live_grep<CR>"),
-            dashboard.button("st", "TODO", "<cmd>TodoTelescope<cr>"),
-            dashboard.button("t", "Terminal", "<cmd>term<cr>"),
+            dashboard.button("ft", "TODO", "<cmd>TodoTelescope<cr>"),
+            -- dashboard.button("t", "Terminal", "<cmd>term<cr>"),
             dashboard.button("q", "Quit", ":qa<CR>"),
         }
 

@@ -1,7 +1,15 @@
 return {
     'mfussenegger/nvim-dap',
-    config = function ()
-        local dap = require("dap")
+    config = function()
+        local dap = require('dap')
+        local widgets = require('dap.ui.widgets')
+        local repl = require ('dap.repl')
+
+        local function open_sidebar_at_bottom()
+            local sidebar = widgets.sidebar(widgets.scopes)
+            sidebar.open()
+            vim.cmd('wincmd K') -- Move the sidebar to the bottom
+        end
 
         dap.adapters.lldb = {
           type = 'executable',
@@ -67,10 +75,14 @@ return {
 
         dap.configurations.c = dap.configurations.cpp
 
-        vim.keymap.set('n', '<leader>dt', function() require('dap').toggle_breakpoint() end)
-        vim.keymap.set('n', '<leader>dc', function() require('dap').continue() end)
-        vim.keymap.set('n', '<leader>do', function() require('dap').step_over() end)
-        vim.keymap.set('n', '<leader>di', function() require('dap').step_into() end)
-        vim.keymap.set('n', '<leader>du', function() require('dap').step_out() end)
+        vim.keymap.set('n', '<leader>dt', function() dap.toggle_breakpoint() end)
+        vim.keymap.set('n', '<leader>dc', function() dap.continue() end)
+        vim.keymap.set('n', '<leader>do', function() dap.step_over() end)
+        vim.keymap.set('n', '<leader>di', function() dap.step_into() end)
+        vim.keymap.set('n', '<leader>du', function() dap.step_out() end)
+        vim.keymap.set('n', '<leader>dx', function() dap.clear_breakpoints() end)
+        vim.keymap.set('n', '<leader>dr', function() repl.open() end)
+        vim.keymap.set('n', '<leader>dh', function() widgets.hover() end)
+        vim.keymap.set('n', '<leader>ds', open_sidebar_at_bottom)
     end,
 }
