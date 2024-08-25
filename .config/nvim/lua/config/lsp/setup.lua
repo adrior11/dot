@@ -52,7 +52,6 @@ local function setup_servers()
         lspconfig[server].setup(opts)
     end
 
-    -- TEST:  
     vim.g.rustaceanvim = function()
         -- Update this path
         local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/'

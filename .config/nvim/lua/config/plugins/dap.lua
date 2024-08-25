@@ -81,6 +81,7 @@ return {
         vim.keymap.set('n', '<leader>di', function() dap.step_into() end)
         vim.keymap.set('n', '<leader>du', function() dap.step_out() end)
         vim.keymap.set('n', '<leader>dx', function() dap.clear_breakpoints() end)
+        vim.keymap.set('n', '<leader>d', function() dap.terminate() end)
         vim.keymap.set('n', '<leader>dr', function() repl.open() end)
         vim.keymap.set('n', '<leader>dh', function() widgets.hover() end)
         vim.keymap.set('n', '<leader>ds', open_sidebar_at_bottom)

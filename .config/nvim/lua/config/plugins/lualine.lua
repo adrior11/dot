@@ -10,6 +10,7 @@ return {
         "kyazdani42/nvim-web-devicons"
     },
     config = function()
+        -- NOTE: Move this to config.utils.color
         local gruvbox_colors = {
             fg = "#ebdbb2", -- light1
             bg = "#282828", -- dark0
@@ -29,13 +30,13 @@ return {
 
         local custom_branch = {
             "branch",
-            icon = "", -- Change this to the desired icon
+            icon = "",
             color = { fg = gruvbox_colors.branch_fg, bg = gruvbox_colors.branch_bg },
         }
 
         require("lualine").setup({
             options = {
-                icons_enabled = true, -- Enable icons
+                icons_enabled = true,
                 theme = {
                     normal = {
                         a = { fg = gruvbox_colors.mode_base, bg = gruvbox_colors.mode_n },

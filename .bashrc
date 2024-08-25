@@ -10,10 +10,13 @@ alias vim='nvim'
 # Set true color support
 export COLORTERM=truecolor
 
-# Add local/bin to PATH
+# Add .local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
-# Set Node.js version 20 as the default by adding it to the PATH
+# Add opt/local/bin to PATH
+export LIBRARY_PATH="$LIBRARY_PATH:/opt/local/lib/"
+
+# Add Node.js version 20 as the default to PATH
 export PATH="/usr/local/opt/node@20/bin:$PATH"
 
 # Custom color schemme for the terminal PATH

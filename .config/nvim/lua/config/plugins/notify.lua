@@ -14,6 +14,7 @@ return {
                 DEBUG = "",
                 TRACE = "✎",
             },
+            level = 2,
         })
 
         -- Set notify as the default notification provider

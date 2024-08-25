@@ -1,7 +1,8 @@
+-- WARN: https://luals.github.io/wiki/faq/#why-is-the-server-scanning-the-wrong-folder
 return {
     {
         "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
+        ft = "lua",
         opts = {
             library = {
                 "~/.config/nvim",
@@ -22,5 +23,4 @@ return {
             })
         end,
     },
-    -- { "folke/neodev.nvim", enabled = false }, -- make sure to uninstall or disable neodev.nvim
 }
