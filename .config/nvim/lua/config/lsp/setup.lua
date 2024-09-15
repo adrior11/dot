@@ -16,7 +16,7 @@ mason_lspconfig.setup({
         "zls",
         "hls",
         "marksman",
-        "tsserver",
+        "ts_ls",
     },
 })
 
@@ -34,7 +34,7 @@ local function setup_servers()
         "zls",
         "hls",
         "marksman",
-        "tsserver",
+        "ts_ls",
     }
 
     for _, server in ipairs(servers) do

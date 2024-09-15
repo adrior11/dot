@@ -13,8 +13,11 @@ export COLORTERM=truecolor
 # Add .local/bin to PATH
 export PATH="$HOME/.local/bin:$PATH"
 
-# Add opt/local/bin to PATH
+# Add opt/local/lib to PATH
 export LIBRARY_PATH="$LIBRARY_PATH:/opt/local/lib/"
+
+# Add /usr/local/lib to LIBRARY_PATH for SDL2_gfx
+export LIBRARY_PATH="$LIBRARY_PATH:/usr/local/lib"
 
 # Add Node.js version 20 as the default to PATH
 export PATH="/usr/local/opt/node@20/bin:$PATH"
