@@ -30,3 +30,6 @@ yabai -m rule --add app="^Karabiner-Elements$" manage=off
 
 # Exclude Finder from Yabai's management
 yabai -m rule --add app="^Finder$" manage=off
+
+# Exclude SDL2 Rust projects
+yabai -m rule --add title="^3D Engine demo$" manage=off
