@@ -52,3 +52,12 @@ vim.keymap.set('t', '<Esc>', '<c-\\><c-n>', opts)
 -- Shift the current line (< left; > right)
 vim.keymap.set('n', '<', 'V<<Esc>', opts)
 vim.keymap.set('n', '>', 'V><Esc>', opts)
+
+-- Toggle relative line
+vim.keymap.set("n", "<leader>rl", function()
+    if vim.wo.relativenumber then
+        vim.wo.relativenumber = false
+    else
+        vim.wo.relativenumber = true
+    end
+end)

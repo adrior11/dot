@@ -1,5 +1,12 @@
 source .extra
 
+# Automatically update tmux status-right with the current directory
+precmd () {
+    if [ -n "$TMUX" ]; then
+        local shortened_path="${PWD/#$HOME/~}"
+        tmux set -qg status-right "#[fg=#ebdbb2] $shortened_path #[fg=#3c3836,bg=#458588] %H:%M "
+    fi
+}
 # Set the command prompt
 export PROMPT="%B[%n@%m %b%~%B]%% %b"
 
