@@ -28,6 +28,9 @@ export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 # Alias vim to nvim
 alias vim='nvim'
 
+# Alias to navigate to the parent directory
+alias ..='cd ..'
+
 # Set terminal to support true color
 export COLORTERM=truecolor
 

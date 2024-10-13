@@ -149,3 +149,6 @@ lspconfig.hls.setup {
 lspconfig.marksman.setup {
     capabilities = capabilities,
 }
+lspconfig.ts_ls.setup {
+    capabilities = capabilities,
+}
