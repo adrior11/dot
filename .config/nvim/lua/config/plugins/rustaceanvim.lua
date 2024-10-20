@@ -1,7 +1,7 @@
 return {
     'mrcjkb/rustaceanvim',
     version = '^5', -- Recommended
-    lazy = false,
+    ft = 'rust',
     config = function()
         local function set_rust_keymaps()
             vim.keymap.set("n", "<leader>ru", ":RustLsp moveItem up<CR>", { noremap = true, silent = true })

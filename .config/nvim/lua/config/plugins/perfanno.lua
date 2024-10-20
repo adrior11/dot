@@ -1,5 +1,6 @@
 return {
    "t-troebst/perfanno.nvim",
+    cmd = "PerfLuaProfileStart",
     dependencies = { "nvim-lua/plenary.nvim" },
     opts = function()
         local util = require("perfanno.util")
@@ -11,5 +12,4 @@ return {
             vt_highlight = util.make_fg_highlight(fg),
         }
     end,
-    cmd = "PerfLuaProfileStart",
 }

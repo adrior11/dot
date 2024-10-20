@@ -9,14 +9,13 @@ mason_lspconfig.setup({
         "lua_ls",
         "pyright",
         "bashls",
-        "clangd",
         "jsonls",
         "jdtls",
         "texlab",
         "zls",
-        "hls",
         "marksman",
         "ts_ls",
+        -- "hls",
     },
 })
 
@@ -27,14 +26,13 @@ local function setup_servers()
         "lua_ls",
         "pyright",
         "bashls",
-        "clangd",
         "jsonls",
         "jdtls",
         "texlab",
         "zls",
-        "hls",
         "marksman",
         "ts_ls",
+        -- "hls",
     }
 
     for _, server in ipairs(servers) do
@@ -53,6 +51,7 @@ local function setup_servers()
     end
 
     vim.g.rustaceanvim = function()
+        -- FIX: ??? Rust
         -- Update this path
         local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/'
         local codelldb_path = extension_path .. 'adapter/codelldb'

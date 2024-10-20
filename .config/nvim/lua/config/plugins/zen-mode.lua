@@ -1,5 +1,7 @@
 return {
     "folke/zen-mode.nvim",
+    keys = { '<leader>zz' },
+    cmd = 'ZenMode',
     config = function()
         require("zen-mode").setup {}
 
