@@ -15,6 +15,7 @@ mason_lspconfig.setup({
         "zls",
         "marksman",
         "ts_ls",
+        "sqlls",
         -- "hls",
     },
 })
@@ -32,13 +33,13 @@ local function setup_servers()
         "zls",
         "marksman",
         "ts_ls",
+        "sqlls",
         -- "hls",
     }
 
     for _, server in ipairs(servers) do
         local opts = {
-            on_attach = require("config.lsp.on_attach"),
-            capabilities = require("config.lsp.capabilities"),
+            capabilities = require('cmp_nvim_lsp').default_capabilities()
         }
 
         local has_custom_opts, server_custom_opts = pcall(require, "config.lsp.servers." .. server)
@@ -51,7 +52,6 @@ local function setup_servers()
     end
 
     vim.g.rustaceanvim = function()
-        -- FIX: ??? Rust
         -- Update this path
         local extension_path = vim.env.HOME .. '/.vscode/extensions/vadimcn.vscode-lldb-1.10.0/'
         local codelldb_path = extension_path .. 'adapter/codelldb'

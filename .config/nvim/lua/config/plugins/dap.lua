@@ -1,5 +1,6 @@
 return {
     'mfussenegger/nvim-dap',
+    cmd = 'DapNew',
     config = function()
         local dap = require('dap')
         local widgets = require('dap.ui.widgets')
@@ -13,7 +14,7 @@ return {
 
         dap.adapters.lldb = {
           type = 'executable',
-          command = '/usr/local/opt/llvm/bin/lldb-dap', -- adjust as needed, must be absolute path
+          command = '/opt/homebrew/opt/llvm/bin/lldb-dap', -- adjust as needed, must be absolute path
           name = 'lldb'
         }
 
@@ -31,6 +32,9 @@ return {
           },
         }
 
+        -- TODO: Configure dap for C
+        dap.configurations.c = dap.configurations.cpp
+
         dap.configurations.rust = {
             {
                 name = 'Launch',
@@ -41,7 +45,10 @@ return {
                 end,
                 cwd = '${workspaceFolder}',
                 stopOnEntry = false,
-                args = {},
+                -- args = {},
+                args = function()
+                    return vim.fn.split(vim.fn.input('Arguments: '), ' ')
+                end,
 
                 -- Optional: Inherit environment variables
                 env = function()
@@ -72,8 +79,6 @@ return {
                 end,
             },
         }
-
-        dap.configurations.c = dap.configurations.cpp
 
         vim.keymap.set('n', '<leader>dt', function() dap.toggle_breakpoint() end)
         vim.keymap.set('n', '<leader>dc', function() dap.continue() end)

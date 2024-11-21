@@ -1,10 +1,6 @@
 local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 
--- return to file structure
--- vim.keymap.set("n", "<leader>[v", vim.cmd.Ex)
-vim.keymap.set("n", "<leader>[v", "<CMD>Oil<CR>")
-
 -- Copy (line) to system clipboard in normal mode
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>yy", '"+yy')
@@ -42,9 +38,6 @@ vim.keymap.set('n', '<leader>wh', '<C-w>h', opts)
 vim.keymap.set('n', '<leader>wj', '<C-w>j', opts)
 vim.keymap.set('n', '<leader>wk', '<C-w>k', opts)
 vim.keymap.set('n', '<leader>wl', '<C-w>l', opts)
-
--- Open Copilot panel
-vim.keymap.set("n", "<leader>cp", ":Copilot panel<CR>", opts)
 
 -- Go back to normal mode in terminal
 vim.keymap.set('t', '<Esc>', '<c-\\><c-n>', opts)

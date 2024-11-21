@@ -43,6 +43,7 @@ cmp.setup({
         documentation = cmp.config.window.bordered(),
     },
     formatting = {
+        expandable_indicator = true,
         fields = { "kind", "abbr", "menu" },
         format = function(entry, vim_item)
             vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
@@ -128,9 +129,9 @@ lspconfig.pyright.setup {
 lspconfig.bashls.setup {
     capabilities = capabilities,
 }
-lspconfig.clangd.setup {
-    capabilities = capabilities,
-}
+-- lspconfig.clangd.setup {
+--     capabilities = capabilities,
+-- }
 lspconfig.jsonls.setup {
     capabilities = capabilities,
 }
@@ -143,12 +144,15 @@ lspconfig.texlab.setup {
 lspconfig.zls.setup {
     capabilities = capabilities,
 }
-lspconfig.hls.setup {
-    capabilities = capabilities,
-}
+-- lspconfig.hls.setup {
+--     capabilities = capabilities,
+-- }
 lspconfig.marksman.setup {
     capabilities = capabilities,
 }
 lspconfig.ts_ls.setup {
+    capabilities = capabilities,
+}
+lspconfig.sqlls.setup {
     capabilities = capabilities,
 }

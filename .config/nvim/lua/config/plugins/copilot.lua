@@ -1,12 +1,14 @@
 return {
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-        require("copilot").setup({
-            panel = {
-                auto_refresh = true,
-            },
-        })
-    end,
+    opts = {
+        auto_refresh = true,
+    },
+    keys = {
+        {
+          "<leader>cp",
+          "<cmd>Copilot panel<cr>",
+          desc = "Open Copilot panel",
+        },
+    }
 }

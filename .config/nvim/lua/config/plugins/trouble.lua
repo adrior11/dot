@@ -2,12 +2,16 @@ return {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     opts = {
-        -- Customize highlights
         vim.api.nvim_set_hl(0, "TroubleText", { bg = "none" }),
         vim.api.nvim_set_hl(0, "TroubleCount", { bg = "none" }),
         vim.api.nvim_set_hl(0, "TroubleNormal", { bg = "none" }),
     },
     keys = {
+        {
+            "<leader>xt",
+            "<cmd>TodoTrouble<cr>",
+            desc = "Trouble Todo",
+        },
         {
           "<leader>xx",
           "<cmd>Trouble diagnostics toggle<cr>",

@@ -1,22 +1,23 @@
+-- TODO: Use config/utils/color
 return {
     {
         "junegunn/fzf",
-        build = "./install --bin"
+        keys = { '<leader>Ff', '<leader>Fg', '<leader>Fb', '<leader>Fh' },
+        build = "./install --bin",
     },
     {
         "ibhagwan/fzf-lua",
+        keys = { '<leader>Ff', '<leader>Fg', '<leader>Fb', '<leader>Fh' },
         dependencies = { "nvim-tree/nvim-web-devicons" },
         config = function()
             require("fzf-lua").setup({
                 winopts = {
-                    -- Set the colors for the window
                     hl = {
                         normal = "GruvboxBg1",
                         border = "GruvboxBg2",
                     },
                 },
                 fzf_opts = {
-                    -- Set the colors for the fzf interface
                     ["--color"] = "bg:#282828,fg:#ebdbb2,hl:#b8bb26,fg+:#ebdbb2,bg+:#3c3836,hl+:#fabd2f,info:#fe8019,prompt:#fe8019,pointer:#fe8019,marker:#fb4934,spinner:#d3869b,header:#8ec07c",
                 },
             })
