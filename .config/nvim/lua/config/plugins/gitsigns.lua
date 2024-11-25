@@ -31,11 +31,11 @@ return {
         current_line_blame_opts = {
             virt_text = true,
             virt_text_pos = 'eol', -- 'eol' | 'overlay' | 'right_align'
-            delay = 1000,
+            delay = 100,
             ignore_whitespace = false,
             virt_text_priority = 100,
         },
-        current_line_blame_formatter = '<author>, <author_time:%R> - <summary>',
+        current_line_blame_formatter = ' <author>, <author_time:%R> • <summary>',
         sign_priority = 6,
         update_debounce = 100,
         status_formatter = nil, -- Use default
@@ -76,17 +76,18 @@ return {
             end, { desc = "Previous hunk" })
 
             -- Actions
-            map({'n', 'v'}, '<leader>hu', ':Gitsigns stage_hunk<CR>')
-            map({'n', 'v'}, '<leader>ho', ':Gitsigns reset_hunk<CR>')
-            map('n', '<leader>hS', gs.stage_buffer)
-            map('n', '<leader>hU', gs.undo_stage_hunk)
-            map('n', '<leader>hR', gs.reset_buffer)
-            map('n', '<leader>hp', gs.preview_hunk)
-            map('n', '<leader>hb', function() gs.blame_line{full=true} end)
-            map('n', '<leader>tb', gs.toggle_current_line_blame)
-            map('n', '<leader>hd', gs.diffthis)
-            map('n', '<leader>hD', function() gs.diffthis('~') end)
-            map('n', '<leader>td', gs.toggle_deleted)
+            map({'n', 'v'}, '<leader>hu', ':Gitsigns stage_hunk<CR>', { desc = "Gitsigns stage hunk" })
+            map({'n', 'v'}, '<leader>ho', ':Gitsigns reset_hunk<CR>', { desc = "Gitsigns reset hunk" })
+            map('n', '<leader>hS', gs.stage_buffer, { desc = "Gitsigns stage buffer" })
+            map('n', '<leader>hU', gs.undo_stage_hunk, { desc = "Gitsigns undo stage hunk" })
+            map('n', '<leader>hR', gs.reset_buffer, { desc = "Gitsigns reset buffer" })
+            map('n', '<leader>hp', gs.preview_hunk, { desc = "Gitsigns preview hunk" })
+            map('n', '<leader>hb', function() gs.blame_line{ full=true } end, { desc = "Gitsigns blame line" })
+            map('n', '<leader>tb', gs.toggle_current_line_blame, { desc = "Gitsigns toggle current blame line" })
+            -- FIX:
+            map('n', '<leader>hd', gs.diffthis, { desc = "Gitsigns diff staged" })
+            map('n', '<leader>hD', function() gs.diffthis('~') end, { desc = "Gitsigns diff last commit" })
+            map('n', '<leader>td', gs.toggle_deleted, { desc = "Gitsigns toggle deleted" })
 
             -- Text object
             map({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')

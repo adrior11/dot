@@ -53,4 +53,4 @@ vim.keymap.set("n", "<leader>rl", function()
     else
         vim.wo.relativenumber = true
     end
-end)
+end, { desc = "Toggle relative line" })
