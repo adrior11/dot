@@ -1,5 +1,6 @@
 # --- PERSONAL CONFIGURATION FILES ---
 source ~/.extra
+source ~/.supermuc
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # --- PATH CONFIGURATION ---
@@ -67,6 +68,21 @@ pdf () {
   else
     ls *.pdf | grep "$1" | head -n 1 | xargs open;
   fi
+}
+
+scp_supermuc() {
+    local source="$1"
+    local dest="$2"
+
+    scp -r -P "${SUPERMUC_PORT}" -o "ProxyJump=${SUPERMUC_PROXY}" \
+        "$source" "${SUPERMUC_USER}@${SUPERMUC_HOST}:${SUPERMUC_BASE_DIR}/$dest"
+}
+
+scp_from_supermuc() {
+    local source="$1"
+
+    scp -r -P "${SUPERMUC_PORT}" -o "ProxyJump=${SUPERMUC_PROXY}" \
+        "${SUPERMUC_USER}@${SUPERMUC_HOST}:${SUPERMUC_BASE_DIR}/$source" .
 }
 
 # --- OTHER UTILITIES ---
