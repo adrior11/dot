@@ -28,5 +28,3 @@ o.backup = true
 o.cmdheight = 0
 o.backupdir = vim.fn.stdpath("state") .. "/backup"
 o.mousescroll = "ver:2,hor:6"
-o.fillchars = "eob: "
-
