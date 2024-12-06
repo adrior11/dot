@@ -33,12 +33,6 @@ vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", opts)
 vim.keymap.set("n", "<leader>ws", ":split<CR>", opts)
 vim.keymap.set("n", "<leader>wv", ":vsplit<CR>", opts)
 
--- Key mappings for window navigation
-vim.keymap.set("n", "<leader>wh", "<C-w>h", opts)
-vim.keymap.set("n", "<leader>wj", "<C-w>j", opts)
-vim.keymap.set("n", "<leader>wk", "<C-w>k", opts)
-vim.keymap.set("n", "<leader>wl", "<C-w>l", opts)
-
 -- Go back to normal mode in terminal
 vim.keymap.set("t", "<Esc>", "<c-\\><c-n>", opts)
 

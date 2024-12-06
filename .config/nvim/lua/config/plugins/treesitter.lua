@@ -1,63 +1,18 @@
+-- FIX: Astro: https://www.lazyvim.org/plugins/treesitter
 return {
-    {
-        "nvim-treesitter/nvim-treesitter",
-        opts = function(_, opts)
-            opts.ensure_installed = opts.ensure_installed or {}
-
-            local languages = {
-                "vimdoc",
-                "javascript",
-                "typescript",
-                "c",
-                "lua",
-                "rust",
-                "jsdoc",
-                "bash",
-                "json",
-                "gitignore",
-                "dockerfile",
-                "vim",
-                "bash",
-                "markdown",
-                "markdown_inline",
-                "html",
-                "swift",
-                "wgsl",
-                "wgsl_bevy",
-            }
-
-            vim.list_extend(opts.ensure_installed, languages)
-        end,
-    },
-    {
-        "IndianBoy42/tree-sitter-just",
-        event = "BufRead justfile",
-        opts = {}
-    },
-    {
-        "Samonitari/tree-sitter-caddy",
-        dependencies = {
-            "nvim-treesitter/nvim-treesitter",
-        },
-        opts = function(_, opts)
-            require("nvim-treesitter.parsers").get_parser_configs().caddy = {
-                install_info = {
-                    url = "https://github.com/Samonitari/tree-sitter-caddy.git",
-                    files = { "src/parser.c", "src/scanner.c" },
-                    branch = "master",
-                },
-                filetype = "caddy",
-            }
-
-            opts.ensure_installed = opts.ensure_installed or {}
-            vim.list_extend(opts.ensure_installed, { "caddy" })
-
-            vim.filetype.add({
-                pattern = {
-                    ["Caddyfile"] = "caddy",
-                },
-            })
-        end,
-        event = "BufRead Caddyfile",
-    },
+	{
+		"nvim-treesitter/nvim-treesitter",
+		lazy = "VeryLazy",
+		build = ":TSUpdate",
+		opts = {
+			ensure_installed = "maintained",
+			sync_install = true,
+			auto_install = true,
+		},
+	},
+	{
+		"IndianBoy42/tree-sitter-just",
+		event = "BufRead justfile",
+		opts = {},
+	},
 }
