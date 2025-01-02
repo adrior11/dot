@@ -2,7 +2,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
-		lazy = "VeryLazy",
+		lazy = "VeryLazy", -- NOTE: This should be either true or field event
 		build = ":TSUpdate",
 		opts = {
 			ensure_installed = "maintained",

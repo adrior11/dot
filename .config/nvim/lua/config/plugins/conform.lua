@@ -9,6 +9,7 @@ return {
 			javascript = { "prettier" },
 			typescript = { "prettier" },
 			astro = { "prettier" },
+			typescriptreact = { "prettier" },
 		},
 	},
 }

@@ -46,8 +46,8 @@ return {
 				"%=", -- make the indicator center
 				{
 					"harpoon2",
-					indicators = { "h", "j", "k", "l" },
-					active_indicators = { "[H]", "[J]", "[K]", "[L]" },
+					indicators = { "1", "2", "3", "4" },
+					active_indicators = { "[1]", "[2]", "[3]", "[4]" },
 					_seperator = " ",
 					no_harpoon = "Harpoon not hooked",
 				},
