@@ -1,30 +1,4 @@
-local jestCommand = function(file)
-	local service_name = string.match(file, "apps/([^/]+)/")
-	if service_name then
-		-- Determine the appropriate target based on the file name
-		local command = "pnpm "
-		if string.find(file, "int%-spec%.ts") then
-			command = command .. "test-int "
-		else
-			command = command .. "test "
-		end
-		return command .. service_name .. " --verbose"
-	end
-	-- Fallback to a default command
-	return "pnpm test"
-end
-
-local jestConfigFile = function(file)
-	local service_path = string.match(file, "(apps/[^/]+)/")
-	if service_path then
-		local config_path = service_path .. "jest.config.js"
-		if vim.fn.filereadable(config_path) == 1 then
-			return config_path
-		end
-	end
-	-- Fallback to a root-level Jest config, if necessary
-	return vim.fn.getcwd() .. "/jest.config.js"
-end
+-- BUG: NeoVim freezes: https://github.com/nvim-neotest/neotest/issues/468
 
 -- NOTE: Can neovim jump to file from path like VSCode?
 -- :h neotest.diagnostic
@@ -94,16 +68,9 @@ return {
 	},
 	config = function()
 		require("neotest").setup({
+			log_level = vim.log.levels.DEBUG,
 			adapters = {
-				require("rustaceanvim.neotest")({
-					args = { "--test-threads=1" },
-				}),
-				-- TODO: Fix jest setup for monorepo
-				require("neotest-jest")({
-					-- jestCommand = jestCommand,
-					jestCommand = "pnpm test --",
-					jestConfigFile = jestConfigFile,
-				}),
+				require("rustaceanvim.neotest"),
 			},
 		})
 	end,

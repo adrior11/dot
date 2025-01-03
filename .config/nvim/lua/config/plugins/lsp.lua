@@ -31,7 +31,7 @@ return {
 				end,
 				on_attach = function(_, bufnr)
 					local function buf_set_option(...)
-						vim.api.nvim_set_option_value(bufnr, ...)
+						-- vim.api.nvim_set_option_value(bufnr, ...)
 					end
 					buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 				end,
@@ -45,12 +45,18 @@ return {
 					vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
 					vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
 					vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, opts)
-					-- FIX: See :h diagnostic.txt
-					-- vim.keymap.set('n', '<leader>e', vim.lsp.diagnostic.show_line_diagnostics(), opts)
-					-- vim.keymap.set('n', '[d', vim.lsp.diagnostic.goto_prev(), opts)
-					-- vim.keymap.set('n', ']d', vim.lsp.diagnostic.jump({count=1, float=true}), opts)
-					-- vim.keymap.set('n', '<leader>q', vim.lsp.diagnostic.set_loclist(), opts)
-					-- vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting(), opts)
+					vim.keymap.set("n", "<leader>e", function()
+						vim.diagnostic.open_float()
+					end, { desc = "Open diagnostics float", noremap = true, silent = true })
+					vim.keymap.set("n", "[d", function()
+						vim.diagnostic.goto_prev()
+					end, { desc = "Go to previous diagnostic", noremap = true, silent = true })
+					vim.keymap.set("n", "]d", function()
+						vim.diagnostic.goto_next()
+					end, { desc = "Go to next diagnostic", noremap = true, silent = true })
+					vim.keymap.set("n", "<leader>q", function()
+						vim.diagnostic.setloclist()
+					end, { desc = "Set diagnostics to loclist", noremap = true, silent = true })
 				end,
 			})
 		end,

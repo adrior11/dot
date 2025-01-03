@@ -6,7 +6,7 @@ return {
 		config = function()
 			local harpoon = require("harpoon")
 
-			-- REQUIRED: Initialize harpoon
+			-- Initialize harpoon
 			harpoon:setup()
 
 			-- Key mappings
@@ -15,16 +15,16 @@ return {
 			end, { desc = "Harpoon add" })
 			vim.keymap.set("n", "<leader>1", function()
 				harpoon:list():select(1)
-			end)
+			end, { desc = "Harpoon 1" })
 			vim.keymap.set("n", "<leader>2", function()
 				harpoon:list():select(2)
-			end)
+			end, { desc = "Harpoon 2" })
 			vim.keymap.set("n", "<leader>3", function()
 				harpoon:list():select(3)
-			end)
+			end, { desc = "Harpoon 3" })
 			vim.keymap.set("n", "<leader>4", function()
 				harpoon:list():select(4)
-			end)
+			end, { desc = "Harpoon 4" })
 
 			-- Reset Harpoon marks
 			vim.keymap.set("n", "<leader>hr", function()
