@@ -36,10 +36,6 @@ vim.keymap.set("n", "<leader>wv", ":vsplit<CR>", opts)
 -- Go back to normal mode in terminal
 vim.keymap.set("t", "<Esc>", "<c-\\><c-n>", opts)
 
--- Shift the current line (< left; > right)
-vim.keymap.set("n", "<", "V<<Esc>", opts)
-vim.keymap.set("n", ">", "V><Esc>", opts)
-
 -- Toggle relative line
 vim.keymap.set("n", "<leader>rl", function()
 	if vim.wo.relativenumber then
@@ -48,3 +44,14 @@ vim.keymap.set("n", "<leader>rl", function()
 		vim.wo.relativenumber = true
 	end
 end, { desc = "Toggle relative line" })
+
+-- Open index.html in browser
+vim.keymap.set("n", "<leader>gs", function()
+	local file = vim.fn.expand("%:t")
+	if file == "index.html" then
+		local path = vim.fn.expand("%:p")
+		vim.fn.system({ "open", path })
+	else
+		print("Current file is not index.html")
+	end
+end, { desc = "Open index.html in browser" })
