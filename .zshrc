@@ -58,7 +58,7 @@ alias ghce="gh copilot explain"
 alias start-skhd="skhd -c ~/.config/skhd/skhdrc &"
 
 # --- TERMINAL AND DISPLAY SETTINGS ---
-export PROMPT="%B[%n@%m %b%~%B]%% %b"
+export PROMPT="[%*%f] %{%F{cyan}%}%n%{%F{reset_color}%}:%{%F{green}%}%~%{%F{reset_color}%} $ "
 export COLORTERM=truecolor
 
 # --- FUNCTIONS ---
