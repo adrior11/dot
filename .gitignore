@@ -2,6 +2,8 @@
 !.gitignore
 !.tmux.conf
 !.zshrc
+!.zshrc_linux
+!.zshrc_macos
 !.config/
 !.config/nvim/
 !.config/nvim/**

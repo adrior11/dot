@@ -1,7 +1,12 @@
 # --- PERSONAL CONFIGURATION FILES ---
-source ~/.extra
-source ~/.supermuc
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    source ~/.zshrc_macos
+    source ~/.extra
+    source ~/.supermuc
+    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    source ~/.zshrc_linux
+fi
 
 # --- PATH CONFIGURATION ---
 export PATH="$HOME/.local/bin:$PATH"
@@ -24,10 +29,10 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 # --- DOCKER AND COLIMA CONFIGURATION ---
 # Set the DOCKER_HOST to point to Colima's Docker socket
-export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
+# export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
 
 # Override the Docker socket path for Testcontainers
-export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
+# export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 
 # --- NODE.JS AND RELATED TOOLS ---
 # Node.js configuration regarding IPv6 resolution
