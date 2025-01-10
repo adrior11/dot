@@ -3,29 +3,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     source ~/.zshrc_macos
     source ~/.extra
     source ~/.supermuc
-    source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     source ~/.zshrc_linux
 fi
-
-# --- PATH CONFIGURATION ---
-export PATH="$HOME/.local/bin:$PATH"
-
-# Add Google Cloud SDK to PATH for gcloud command line tools
-export PATH=/opt/homebrew/share/google-cloud-sdk/bin:$PATH
-
-# Add paths for libraries (needed for compiling/linking certain applications)
-export LIBRARY_PATH="$LIBRARY_PATH:/opt/local/lib:/usr/local/lib:/opt/homebrew/lib"
-
-# Setting PATH for specific Python frameworks
-PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
-PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
-export PATH
-
-# Set the JAVA_HOME and add Java to Path 
-# export JAVA_HOME=$(/usr/libexec/java_home -v 22)
-export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk-23.0.1.jdk/Contents/Home
-export PATH=$JAVA_HOME/bin:$PATH
 
 # --- DOCKER AND COLIMA CONFIGURATION ---
 # Set the DOCKER_HOST to point to Colima's Docker socket
@@ -51,16 +31,12 @@ export FNM_COREPACK_ENABLED=true
 # Rust Cargo environment setup
 . "$HOME/.cargo/env"
 
-# Initialize Homebrew environment
-# eval "$(/usr/local/bin/brew shellenv)"
-
 # --- ALIASES ---
-alias vim='nvim'
+# alias vim='nvim'
 alias ..='cd ..'
 alias nx="pnpm exec nx"
 alias ghcs="gh copilot suggest"
 alias ghce="gh copilot explain"
-alias start-skhd="skhd -c ~/.config/skhd/skhdrc &"
 
 # --- TERMINAL AND DISPLAY SETTINGS ---
 export PROMPT="[%*%f] %{%F{cyan}%}%n%{%F{reset_color}%}:%{%F{green}%}%~%{%F{reset_color}%} $ "
