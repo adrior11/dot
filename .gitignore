@@ -5,6 +5,8 @@
 !.zshrc_linux
 !.zshrc_macos
 !.config/
+!.config/alacritty/
+!.config/alacritty/**
 !.config/nvim/
 !.config/nvim/**
 !.config/yabai/
