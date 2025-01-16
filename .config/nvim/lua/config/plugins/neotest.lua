@@ -1,10 +1,5 @@
--- BUG: NeoVim freezes: https://github.com/nvim-neotest/neotest/issues/468
-
--- NOTE: Can neovim jump to file from path like VSCode?
--- :h neotest.diagnostic
 -- :h neotest.summary
 -- :h neotest.output_panel
--- :h neotest.watch
 return {
 	"nvim-neotest/neotest",
 	dependencies = {
