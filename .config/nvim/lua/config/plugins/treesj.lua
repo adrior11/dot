@@ -1,5 +1,6 @@
 return {
 	"Wansmer/treesj",
+	dependencies = { "nvim-treesitter/nvim-treesitter" },
 	keys = {
 		{
 			"<leader>m",
@@ -14,6 +15,5 @@ return {
 			desc = "Treesj split",
 		},
 	},
-	dependencies = { "nvim-treesitter/nvim-treesitter" },
 	opts = {},
 }

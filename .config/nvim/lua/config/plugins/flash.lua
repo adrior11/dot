@@ -1,6 +1,5 @@
 return {
 	"folke/flash.nvim",
-	key = { "s", "S" },
 	opts = {
 		labels = "asdfghjklqwertyuiopzxcvbnm",
 		search = {

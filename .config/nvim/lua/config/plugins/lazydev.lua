@@ -4,10 +4,10 @@ return {
 		ft = "lua",
 		opts = {
 			library = {
-				"~/.config/nvim",
-
-				-- Load luvit types when the `vim.uv` word is found
+				-- "~/.config/nvim",
 				{ path = "luvit-meta/library", words = { "vim%.uv" } },
+				{ path = "snacks.nvim", words = { "Snacks" } },
+				{ path = "lazy.nvim", words = { "LazyVim" } },
 			},
 		},
 	},
