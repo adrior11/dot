@@ -53,13 +53,14 @@ return {
 			"<cmd>Telescope help_tags<cr>",
 			desc = "Telescope help tags",
 		},
-		{
-			"<C-e>",
-			function()
-				toggle_telescope()
-			end,
-			desc = "Open harpoon window",
-		},
+		-- TODO: Use another keymap
+		-- {
+		-- 	"<C-e>",
+		-- 	function()
+		-- 		toggle_telescope()
+		-- 	end,
+		-- 	desc = "Open harpoon window",
+		-- },
 		{
 			"<leader>ft",
 			"<cmd>TodoTelescope<cr>",

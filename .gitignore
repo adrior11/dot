@@ -1,25 +1,7 @@
-*
-!.gitignore
+# Include dotfiles
 !.tmux.conf
 !.zshrc
-!.zshrc_linux
 !.zshrc_macos
-!.config/
-!.config/alacritty/
-!.config/alacritty/**
-!.config/nvim/
-!.config/nvim/**
-!.config/yabai/
-!.config/yabai/**
-!.config/skhd/
-!.config/skhd/**
-!.config/karabiner/
-!.config/karabiner/karabiner.json
-.config/nvim/lua/config/plugins/wtf.lua
-.config/nvim/projects/
-.config/nvim/pack/
-.DS_Store
-.bashrc
-.extra
-.npmrc
+!.zshrc_linux
 
+.DS_Store

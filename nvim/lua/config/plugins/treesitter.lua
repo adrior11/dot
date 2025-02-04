@@ -3,6 +3,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		lazy = true,
 		build = ":TSUpdate",
+		cmd = "TSInstallInfo",
 		opts = {
 			ensure_installed = "maintained",
 			sync_install = true,
