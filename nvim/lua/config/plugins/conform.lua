@@ -3,6 +3,7 @@ return {
 	event = "BufWritePre",
 	opts = {
 		formatters_by_ft = {
+			c = { "clang_format" },
 			lua = { "stylua" },
 			rust = { "rustfmt" },
 			swift = { "swift_format" },
@@ -10,6 +11,7 @@ return {
 			typescript = { "prettier" },
 			astro = { "prettier" },
 			typescriptreact = { "prettier" },
+			java = { "google-java-format" },
 		},
 	},
 }

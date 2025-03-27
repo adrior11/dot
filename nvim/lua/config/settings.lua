@@ -25,6 +25,6 @@ o.splitright = true
 o.splitbelow = true
 o.termguicolors = true
 o.backup = true
-o.cmdheight = 0
+-- o.cmdheight = 0
 o.backupdir = vim.fn.stdpath("state") .. "/backup"
 o.mousescroll = "ver:2,hor:6"

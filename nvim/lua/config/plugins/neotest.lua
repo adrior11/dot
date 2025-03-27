@@ -1,5 +1,6 @@
 -- :h neotest.summary
 -- :h neotest.output_panel
+---@diagnostic disable: missing-fields
 return {
 	"nvim-neotest/neotest",
 	dependencies = {
@@ -7,7 +8,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
-		"nvim-neotest/neotest-jest",
+		"rcasia/neotest-java",
 	},
 	keys = {
 		{
@@ -47,6 +48,13 @@ return {
 			desc = "Debug nearest test",
 		},
 		{
+			"<leader>nD",
+			function()
+				require("neotest").run.run({ vim.fn.expand("%"), strategy = "dap" })
+			end,
+			desc = "Debug the current file",
+		},
+		{
 			"<leader>ns",
 			function()
 				require("neotest").run.stop()
@@ -54,7 +62,7 @@ return {
 			desc = "Stop nearest test",
 		},
 		{
-			"<leader>nd",
+			"<leader>na",
 			function()
 				require("neotest").run.attach()
 			end,
@@ -66,6 +74,7 @@ return {
 			log_level = vim.log.levels.DEBUG,
 			adapters = {
 				require("rustaceanvim.neotest"),
+				require("neotest-java"),
 			},
 		})
 	end,

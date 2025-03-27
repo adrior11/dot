@@ -30,3 +30,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		require("conform").format({ bufnr = args.buf })
 	end,
 })
+
+-- organize imports (java)
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.java",
+	callback = function()
+		vim.lsp.buf.code_action({
+			---@diagnostic disable-next-line: missing-fields
+			context = { only = { "source.organizeImports" } },
+			apply = true,
+		})
+	end,
+})

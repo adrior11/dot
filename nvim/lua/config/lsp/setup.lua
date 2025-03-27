@@ -1,38 +1,36 @@
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 
-mason.setup()
+mason.setup({})
 
 mason_lspconfig.setup({
 	ensure_installed = {
-		"lua_ls",
-		"pyright",
 		"bashls",
-		"jsonls",
-		"jdtls",
-		"texlab",
-		"zls",
-		"marksman",
-		"ts_ls",
-		"sqlls",
 		-- "hls",
+		"jsonls",
+		"lua_ls",
+		"marksman",
+		"pyright",
+		"texlab",
+		"ts_ls",
+		"zls",
+		"sqlls",
 	},
 })
 
 local function setup_servers()
 	local lspconfig = require("lspconfig")
 	local servers = {
-		"lua_ls",
-		"pyright",
 		"bashls",
-		"jsonls",
-		"jdtls",
-		"texlab",
-		"zls",
-		"marksman",
-		"ts_ls",
-		"sqlls",
 		-- "hls",
+		"jsonls",
+		"lua_ls",
+		"marksman",
+		"pyright",
+		"texlab",
+		"ts_ls",
+		"zls",
+		-- "sqlls",
 	}
 
 	for _, server in ipairs(servers) do
