@@ -6,6 +6,8 @@ mason.setup({})
 mason_lspconfig.setup({
 	ensure_installed = {
 		"bashls",
+		"clangd",
+		"elixirls",
 		-- "hls",
 		"jsonls",
 		"lua_ls",
@@ -22,6 +24,8 @@ local function setup_servers()
 	local lspconfig = require("lspconfig")
 	local servers = {
 		"bashls",
+		"clangd",
+		"elixirls",
 		-- "hls",
 		"jsonls",
 		"lua_ls",

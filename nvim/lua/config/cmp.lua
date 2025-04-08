@@ -129,6 +129,9 @@ lspconfig.pyright.setup({
 lspconfig.bashls.setup({
 	capabilities = capabilities,
 })
+lspconfig.elixirls.setup({
+	capabilities = capabilities,
+})
 -- lspconfig.clangd.setup {
 --     capabilities = capabilities,
 -- }
