@@ -43,16 +43,25 @@ return {
 				"diagnostics",
 			},
 			lualine_c = {
-				"%=", -- make the indicator center
+				{
+					"filename",
+					path = 1,
+					symbols = {
+						modified = "[+]",
+						readonly = "[-]",
+						unnamed = "[No Name]",
+						newfile = "[New]",
+					},
+				},
+			},
+			lualine_x = {
 				{
 					"harpoon2",
 					indicators = { "1", "2", "3", "4" },
 					active_indicators = { "[1]", "[2]", "[3]", "[4]" },
 					_seperator = " ",
-					no_harpoon = "Harpoon not hooked",
 				},
 			},
-			lualine_x = {},
 			lualine_y = { "progress" },
 			lualine_z = { "location" },
 		},

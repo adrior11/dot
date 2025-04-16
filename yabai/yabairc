@@ -24,15 +24,11 @@ yabai -m config mouse_action2 resize
 # when window is dropped in center of another window, swap them (on edges it will split it)
 yabai -m mouse_drop_action swap
 
+# Exclude from Yabai's management
+yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^FaceTime$" manage=off
 yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
-
-# Exclude Finder from Yabai's management
-yabai -m rule --add app="^Finder$" manage=off
-
-# Exclude FaceTime from Yabai's management
-yabai -m rule --add app="^FaceTime$" manage=off
-
-# Exclude SDL2 Rust projects
 yabai -m rule --add title="^3D Engine demo$" manage=off
+yabai -m rule --add title="^Test$" manage=off

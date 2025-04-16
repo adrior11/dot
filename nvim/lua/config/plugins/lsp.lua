@@ -27,12 +27,11 @@ return {
 			lspconfig.sourcekit.setup({
 				capabilities = capabilities,
 				root_dir = function(fname)
-					return util.root_pattern("Package.swift", "*.xcodeproj")(fname) or util.find_git_ancestor(fname)
+					return util.root_pattern("Package.swift", "*.xcodeproj")(fname)
+						or vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
 				end,
-				on_attach = function(_, bufnr)
-					local function buf_set_option(...)
-						-- vim.api.nvim_set_option_value(bufnr, ...)
-					end
+				on_attach = function(_, _)
+					local function buf_set_option(...) end
 					buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
 				end,
 			})
