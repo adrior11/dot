@@ -3,16 +3,17 @@ return {
 	event = "BufWritePre",
 	opts = {
 		formatters_by_ft = {
+			astro = { "prettier" },
 			c = { "clang_format" },
 			elixir = { "mix" },
+			java = { "google-java-format" },
+			javascript = { "prettier" },
+			json = { "prettier" },
 			lua = { "stylua" },
 			rust = { "rustfmt" },
 			swift = { "swift_format" },
-			javascript = { "prettier" },
 			typescript = { "prettier" },
-			astro = { "prettier" },
 			typescriptreact = { "prettier" },
-			java = { "google-java-format" },
 		},
 	},
 }
