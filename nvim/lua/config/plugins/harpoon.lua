@@ -9,10 +9,10 @@ return {
 			-- Initialize harpoon
 			harpoon:setup()
 
-			-- Key mappings
 			vim.keymap.set("n", "<leader>a", function()
 				harpoon:list():add()
 			end, { desc = "Harpoon add" })
+
 			vim.keymap.set("n", "<leader>1", function()
 				harpoon:list():select(1)
 			end, { desc = "Harpoon 1" })
@@ -25,6 +25,9 @@ return {
 			vim.keymap.set("n", "<leader>4", function()
 				harpoon:list():select(4)
 			end, { desc = "Harpoon 4" })
+			vim.keymap.set("n", "<leader>5", function()
+				harpoon:list():select(5)
+			end, { desc = "Harpoon 5" })
 
 			-- Reset Harpoon marks
 			vim.keymap.set("n", "<leader>hr", function()

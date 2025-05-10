@@ -57,8 +57,8 @@ return {
 			lualine_x = {
 				{
 					"harpoon2",
-					indicators = { "1", "2", "3", "4" },
-					active_indicators = { "[1]", "[2]", "[3]", "[4]" },
+					indicators = { "1", "2", "3", "4", "5" },
+					active_indicators = { "[1]", "[2]", "[3]", "[4]", "[5]" },
 					_seperator = " ",
 				},
 			},
