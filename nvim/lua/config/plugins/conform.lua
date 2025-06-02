@@ -4,6 +4,7 @@ return {
 	opts = {
 		formatters_by_ft = {
 			astro = { "prettier" },
+			python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 			c = { "clang_format" },
 			elixir = { "mix" },
 			java = { "google-java-format" },

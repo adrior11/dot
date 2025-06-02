@@ -1,5 +1,6 @@
 return {
 	"lewis6991/gitsigns.nvim",
+	event = "VeryLazy",
 	opts = {
 		signs = {
 			add = { text = "┃" },
@@ -82,11 +83,12 @@ return {
 			map("n", "<leader>hU", gs.undo_stage_hunk, { desc = "Gitsigns undo stage hunk" })
 			map("n", "<leader>hR", gs.reset_buffer, { desc = "Gitsigns reset buffer" })
 			map("n", "<leader>hp", gs.preview_hunk, { desc = "Gitsigns preview hunk" })
+			map("n", "<leader>hP", gs.preview_hunk_inline, { desc = "Gitsigns preview hunk inline" })
 			map("n", "<leader>hb", function()
 				gs.blame_line({ full = true })
 			end, { desc = "Gitsigns blame line" })
 			map("n", "<leader>tb", gs.toggle_current_line_blame, { desc = "Gitsigns toggle current blame line" })
-			map("n", "<leader>td", gs.toggle_deleted, { desc = "Gitsigns toggle deleted" })
+			map("n", "<leader>tw", gs.toggle_word_diff, { desc = "Gitsigns toggle word diff" })
 
 			-- Text object
 			map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")

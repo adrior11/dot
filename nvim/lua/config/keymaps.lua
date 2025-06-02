@@ -29,10 +29,6 @@ vim.keymap.set("n", "<leader>tt", ":tabnext<CR>", opts)
 vim.keymap.set("n", "<leader>tp", ":tabprevious<CR>", opts)
 vim.keymap.set("n", "<leader>tc", ":tabclose<CR>", opts)
 
--- Key mappings for splitting windows
-vim.keymap.set("n", "<leader>ws", ":split<CR>", opts)
-vim.keymap.set("n", "<leader>wv", ":vsplit<CR>", opts)
-
 -- Go back to normal mode in terminal
 vim.keymap.set("t", "<Esc>", "<c-\\><c-n>", opts)
 

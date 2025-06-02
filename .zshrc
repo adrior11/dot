@@ -29,7 +29,6 @@ alias ..='cd ..'
 alias nx="pnpm exec nx"
 alias ghcs="gh copilot suggest"
 alias ghce="gh copilot explain"
-alias py="python3"
 
 # --- TERMINAL AND DISPLAY SETTINGS ---
 export PROMPT="[%*%f] %{%F{cyan}%}%n%{%F{reset_color}%}:%{%F{green}%}%~%{%F{reset_color}%} $ "

@@ -18,9 +18,7 @@ export PATH=/opt/homebrew/share/google-cloud-sdk/bin:$PATH
 export LIBRARY_PATH="$LIBRARY_PATH:/opt/local/lib:/usr/local/lib:/opt/homebrew/lib"
 
 # Setting PATH for specific Python frameworks
-export PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
-export PATH="/Library/Frameworks/Python.framework/Versions/3.12/bin:${PATH}"
-export PATH="/Library/Frameworks/Python.framework/Versions/3.13/bin:${PATH}"
+export PATH="/opt/homebrew/opt/python@3.13/bin:$PATH"
 
 # Set the JAVA_HOME and add Java to Path 
 export JAVA_HOME="/opt/homebrew/opt/openjdk@21"
