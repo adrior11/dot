@@ -43,6 +43,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
+-- formatting (scala)
+vim.api.nvim_create_autocmd("BufWritePre", {
+	pattern = "*.scala",
+	callback = function()
+		vim.lsp.buf.format()
+	end,
+})
+
 -- LSP keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
 	desc = "LSP Actions",

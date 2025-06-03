@@ -2,8 +2,6 @@ local PACKAGES = {
 	"basedpyright",
 	"bash-language-server",
 	"clangd",
-	-- "docker-compose-language-service",
-	-- "dockerfile-language-server",
 	"elixir-ls",
 	"json-lsp",
 	"lua-language-server",

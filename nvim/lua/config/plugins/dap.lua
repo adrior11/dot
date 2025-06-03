@@ -94,6 +94,26 @@ return {
 			},
 		}
 
+		dap.configurations.scala = {
+			{
+				type = "scala",
+				request = "launch",
+				name = "RunOrTest",
+				metals = {
+					runType = "runOrTestFile",
+					--args = { "arg" },
+				},
+			},
+			{
+				type = "scala",
+				request = "launch",
+				name = "Test Target",
+				metals = {
+					runType = "testTarget",
+				},
+			},
+		}
+
 		vim.keymap.set("n", "<leader>b", function()
 			dap.toggle_breakpoint()
 		end, { desc = "DAP Toggle breakpoint" })
