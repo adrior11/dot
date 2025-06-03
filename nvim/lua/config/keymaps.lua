@@ -1,5 +1,6 @@
 local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- Copy (line) to system clipboard in normal mode
 vim.keymap.set("n", "<leader>y", '"+y')

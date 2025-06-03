@@ -42,3 +42,48 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		})
 	end,
 })
+
+-- LSP keymaps
+vim.api.nvim_create_autocmd("LspAttach", {
+	desc = "LSP Actions",
+	callback = function(_)
+		vim.keymap.set(
+			"n",
+			"K",
+			vim.lsp.buf.hover,
+			{ desc = "Show hover documentation", noremap = true, silent = true }
+		)
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {
+			desc = "Go to declaration",
+			noremap = true,
+			silent = true,
+		})
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
+			desc = "Go to definition",
+			noremap = true,
+			silent = true,
+		})
+		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {
+			desc = "Go to implementation",
+			noremap = true,
+			silent = true,
+		})
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, {
+			desc = "Show references",
+			noremap = true,
+			silent = true,
+		})
+		vim.keymap.set("n", "<leader>e", function()
+			vim.diagnostic.open_float()
+		end, { desc = "Open diagnostics float", noremap = true, silent = true })
+		vim.keymap.set("n", "[d", function()
+			vim.diagnostic.jump({ count = -1, float = true })
+		end, { desc = "Go to previous diagnostic", noremap = true, silent = true })
+		vim.keymap.set("n", "]d", function()
+			vim.diagnostic.jump({ count = 1, float = true })
+		end, { desc = "Go to next diagnostic", noremap = true, silent = true })
+		vim.keymap.set("n", "<leader>q", function()
+			vim.diagnostic.setloclist()
+		end, { desc = "Set diagnostics to loclist", noremap = true, silent = true })
+	end,
+})

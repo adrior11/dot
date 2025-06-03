@@ -1,6 +1,5 @@
 local colors = require("config.utils.color").colors()
 
--- TODO: Move key declaration completely into keys = {}
 return {
 	{
 		"junegunn/fzf",

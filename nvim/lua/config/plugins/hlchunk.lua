@@ -2,7 +2,7 @@ local colors = require("config.utils.color").colors()
 
 return {
 	"shellRaining/hlchunk.nvim",
-	event = { "BufReadPre", "BufNewFile" },
+	event = "VeryLazy",
 	opts = {
 		chunk = {
 			enable = true,
