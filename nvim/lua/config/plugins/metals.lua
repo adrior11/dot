@@ -1,5 +1,3 @@
--- DAP configuration: https://github.com/scalameta/nvim-metals/discussions/39
-
 return {
 	"scalameta/nvim-metals",
 	dependencies = {

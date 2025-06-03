@@ -1,5 +1,6 @@
 return {
 	"elixir-editors/vim-elixir",
+	ft = { "elixir", "eelixir", "heex", "surface" },
 	config = function()
 		-- Enables Syntax highlighting for these extensions
 		vim.filetype.add({
