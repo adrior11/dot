@@ -4,16 +4,21 @@ return {
 	keys = {
 		{
 			"<leader>m",
+			function()
+				require("treesj").toggle()
+			end,
 			desc = "Treesj toggle",
 		},
 		{
-			"<leader>j",
-			desc = "Treesj join",
-		},
-		{
-			"<leader>s",
-			desc = "Treesj split",
+			"<leader>M",
+			function()
+				require("treesj").toggle({ recursive = true })
+			end,
+			desc = "Treesj toggle",
 		},
 	},
-	opts = {},
+	opts = {
+		use_default_keymaps = false,
+		max_join_length = 300,
+	},
 }

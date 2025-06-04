@@ -90,7 +90,6 @@ end
 return {
 	"williamboman/mason.nvim",
 	event = "VeryLazy",
-	enabled = not vim.g.vscode,
 	init = function()
 		-- Make mason packages available before loading it; allows to lazy-load mason
 		vim.env.PATH = vim.fn.stdpath("data") .. "/mason/bin:" .. vim.env.PATH

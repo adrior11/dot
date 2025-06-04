@@ -1,6 +1,3 @@
--- :h neotest.summary
--- :h neotest.output_panel
----@diagnostic disable: missing-fields
 return {
 	"nvim-neotest/neotest",
 	dependencies = {
@@ -9,6 +6,7 @@ return {
 		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		"rcasia/neotest-java",
+		"nvim-neotest/neotest-plenary",
 	},
 	keys = {
 		{
@@ -75,6 +73,7 @@ return {
 			adapters = {
 				require("rustaceanvim.neotest"),
 				require("neotest-java"),
+				require("neotest-plenary"),
 			},
 		})
 	end,

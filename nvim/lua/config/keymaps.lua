@@ -41,14 +41,3 @@ vim.keymap.set("n", "<leader>rl", function()
 		vim.wo.relativenumber = true
 	end
 end, { desc = "Toggle relative line" })
-
--- Open index.html in browser
-vim.keymap.set("n", "<leader>gs", function()
-	local file = vim.fn.expand("%:t")
-	if file == "index.html" then
-		local path = vim.fn.expand("%:p")
-		vim.fn.system({ "open", path })
-	else
-		print("Current file is not index.html")
-	end
-end, { desc = "Open index.html in browser" })

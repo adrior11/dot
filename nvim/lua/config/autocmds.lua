@@ -61,26 +61,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.lsp.buf.hover,
 			{ desc = "Show hover documentation", noremap = true, silent = true }
 		)
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {
-			desc = "Go to declaration",
-			noremap = true,
-			silent = true,
-		})
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
-			desc = "Go to definition",
-			noremap = true,
-			silent = true,
-		})
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {
-			desc = "Go to implementation",
-			noremap = true,
-			silent = true,
-		})
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, {
-			desc = "Show references",
-			noremap = true,
-			silent = true,
-		})
 		vim.keymap.set("n", "<leader>e", function()
 			vim.diagnostic.open_float()
 		end, { desc = "Open diagnostics float", noremap = true, silent = true })

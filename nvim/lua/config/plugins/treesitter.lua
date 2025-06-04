@@ -29,6 +29,7 @@ local PARSERS = {
 	"swift",
 	"terraform",
 	"toml",
+	"tsx",
 	"typescript",
 	"vim",
 	"vimdoc",
@@ -38,23 +39,16 @@ local PARSERS = {
 }
 
 return {
-	{
-		"nvim-treesitter/nvim-treesitter",
-		event = { "BufReadPost", "BufNewFile" },
-		build = ":TSUpdate",
-		cmd = "TSInstallInfo",
-		opts = {
-			ensure_installed = PARSERS,
-			sync_install = true,
-			auto_install = true,
-			highlight = {
-				enable = true,
-			},
+	"nvim-treesitter/nvim-treesitter",
+	event = { "BufReadPost", "BufNewFile" },
+	build = ":TSUpdate",
+	cmd = "TSInstallInfo",
+	opts = {
+		ensure_installed = PARSERS,
+		sync_install = true,
+		auto_install = true,
+		highlight = {
+			enable = true,
 		},
-	},
-	{
-		"IndianBoy42/tree-sitter-just",
-		event = "BufRead justfile",
-		opts = {},
 	},
 }
