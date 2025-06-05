@@ -31,9 +31,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
--- organize imports (java)
+-- organize imports (java, scala)
 vim.api.nvim_create_autocmd("BufWritePre", {
-	pattern = "*.java",
+	pattern = { "*.java", "*.scala" },
 	callback = function()
 		vim.lsp.buf.code_action({
 			---@diagnostic disable-next-line: missing-fields

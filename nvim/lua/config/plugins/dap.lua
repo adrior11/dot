@@ -26,7 +26,7 @@ return {
 
 		dap.adapters.lldb = {
 			type = "executable",
-			command = "/opt/homebrew/opt/llvm/bin/lldb-dap", -- adjust as needed, must be absolute path
+			command = "/opt/homebrew/opt/llvm/bin/lldb-dap",
 			name = "lldb",
 		}
 
@@ -101,7 +101,9 @@ return {
 				name = "RunOrTest",
 				metals = {
 					runType = "runOrTestFile",
-					--args = { "arg" },
+					args = function()
+						return vim.fn.split(vim.fn.input("Arguments: "), " ")
+					end,
 				},
 			},
 			{
