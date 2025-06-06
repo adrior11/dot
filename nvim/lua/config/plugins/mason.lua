@@ -6,6 +6,7 @@ local PACKAGES = {
 	"json-lsp",
 	"lua-language-server",
 	"marksman",
+	"ruby-lsp",
 	"sqlls",
 	"texlab",
 	"typescript-language-server",

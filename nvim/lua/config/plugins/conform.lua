@@ -11,6 +11,7 @@ return {
 			javascript = { "prettier" },
 			json = { "prettier" },
 			lua = { "stylua" },
+			ruby = { "rubyfmt" },
 			rust = { "rustfmt" },
 			swift = { "swift_format" },
 			typescript = { "prettier" },

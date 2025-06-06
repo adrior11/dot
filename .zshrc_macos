@@ -8,6 +8,12 @@ export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
 # Override the Docker socket path for Testcontainers
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 
+# --- RUBY SETUP ---
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
+
 # --- PATH CONFIGURATION ---
 export PATH="$HOME/.local/bin:$PATH"
 

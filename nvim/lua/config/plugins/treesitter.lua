@@ -23,6 +23,7 @@ local PARSERS = {
 	"markdown",
 	"markdown_inline",
 	"python",
+	"ruby",
 	"rust",
 	"scala",
 	"sql",
