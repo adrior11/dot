@@ -7,6 +7,7 @@ return {
 			python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 			c = { "clang_format" },
 			elixir = { "mix" },
+			go = { "gofmt" },
 			java = { "google-java-format" },
 			javascript = { "prettier" },
 			json = { "prettier" },

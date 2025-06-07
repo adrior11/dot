@@ -3,6 +3,7 @@ local PACKAGES = {
 	"bash-language-server",
 	"clangd",
 	"elixir-ls",
+	"gopls",
 	"json-lsp",
 	"lua-language-server",
 	"marksman",
