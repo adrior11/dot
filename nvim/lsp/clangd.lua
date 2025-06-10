@@ -1,7 +1,7 @@
 -- https://github.com/neovim/nvim-lspconfig/blob/master/lsp/clangd.lua
 
 return {
-	cmd = { "clangd" },
+	cmd = { "clangd", "--compile-commands-dir=build" },
 	filetypes = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
 	root_markers = {
 		".clangd",

@@ -1,6 +1,5 @@
 return {
 	"mfussenegger/nvim-dap",
-	cmd = "DapNew",
 	config = function()
 		local dap = require("dap")
 		local widgets = require("dap.ui.widgets")
@@ -14,14 +13,6 @@ return {
 		dap.listeners.before.launch.dapui_config = function()
 			repl.open()
 			sidebar.open()
-		end
-		dap.listeners.before.event_terminated.dapui_config = function()
-			sidebar.close()
-			repl.close()
-		end
-		dap.listeners.before.event_exited.dapui_config = function()
-			sidebar.close()
-			repl.close()
 		end
 
 		dap.adapters.lldb = {
@@ -115,53 +106,90 @@ return {
 				},
 			},
 		}
-
-		vim.keymap.set("n", "<leader>b", function()
-			dap.toggle_breakpoint()
-		end, { desc = "DAP Toggle breakpoint" })
-
-		vim.keymap.set("n", "<Leader>bl", function()
-			require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
-		end, { desc = "DAP DAP Set breakpoint logs" })
-
-		vim.keymap.set("n", "<leader>bc", function()
-			dap.clear_breakpoints()
-		end, { desc = "DAP Clear all breakpoints" })
-
-		vim.keymap.set("n", "<F5>", function()
-			dap.continue()
-		end, { desc = "DAP Continue/Start" })
-
-		vim.keymap.set("n", "<F6>", function()
-			require("dap").run_last()
-		end, { desc = "DAP Run last session" })
-
-		vim.keymap.set("n", "<F7>", function()
-			dap.terminate()
-		end, { desc = "DAP Terminate session" })
-
-		vim.keymap.set("n", "<F9>", function()
-			widgets.hover()
-		end, { desc = "DAP Show hover information" })
-
-		vim.keymap.set("n", "<F10>", function()
-			dap.step_over()
-		end, { desc = "DAP Step over" })
-
-		vim.keymap.set("n", "<F11>", function()
-			dap.step_into()
-		end, { desc = "DAP Step into" })
-
-		vim.keymap.set("n", "<F12>", function()
-			dap.step_out()
-		end, { desc = "DAP Step out" })
-
-		vim.keymap.set("n", "<leader>dr", function()
-			repl.open()
-		end, { desc = "DAP Open REPL" })
-
-		vim.keymap.set("n", "<leader>ds", function()
-			sidebar.open()
-		end, { desc = "DAP Show scopes" })
 	end,
+	keys = {
+		{
+			"<leader>b",
+			function()
+				require("dap").toggle_breakpoint()
+			end,
+			desc = "DAP Toggle breakpoint",
+		},
+		{
+			"<leader>bl",
+			function()
+				require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+			end,
+			desc = "DAP Set breakpoint logs",
+		},
+		{
+			"<leader>bc",
+			function()
+				require("dap").clear_breakpoints()
+			end,
+			desc = "DAP Clear all breakpoints",
+		},
+		{
+			"<f5>",
+			function()
+				require("dap").continue()
+			end,
+			desc = "DAP Continue/Start",
+		},
+		{
+			"<F6>",
+			function()
+				require("dap").run_last()
+			end,
+			desc = "DAP Run last session",
+		},
+		{
+			"<F7>",
+			function()
+				require("dap").terminate()
+			end,
+			desc = "DAP Terminate session",
+		},
+		{
+			"<F9>",
+			function()
+				require("dap.ui.widgets").hover()
+			end,
+			desc = "DAP Show hover information",
+		},
+		{
+			"<F10>",
+			function()
+				require("dap").step_over()
+			end,
+			desc = "DAP Step over",
+		},
+		{
+			"<F11>",
+			function()
+				require("dap").step_into()
+			end,
+			desc = "DAP Step into",
+		},
+		{
+			"<F12>",
+			function()
+				require("dap").step_out()
+			end,
+			desc = "DAP Step out",
+		},
+		{
+			"<leader>dr",
+			function()
+				require("dap.repl").open()
+			end,
+		},
+		{
+			"<leader>ds",
+			function()
+				require("dap.ui.widgets").sidebar(require("dap.ui.widgets").scopes).open()
+			end,
+			desc = "DAP Show scopes",
+		},
+	},
 }
