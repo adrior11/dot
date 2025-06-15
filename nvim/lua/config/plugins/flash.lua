@@ -42,7 +42,7 @@ return {
 			function()
 				require("flash").treesitter()
 			end,
-			desc = "Flash TreesRtter",
+			desc = "Flash Treesitter",
 		},
 		{
 			"r",

@@ -16,6 +16,9 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 # Allow fnm to manage pnpm transparently and automatically install Node.js with Corepack
 export FNM_COREPACK_ENABLED=true
 
+# Disable TUI for Nx CL
+export NX_TUI=false
+
 # --- ENVIRONMENT INITIALIZATION FOR LANGUAGES AND TOOLS ---
 # Haskell GHCup environment setup
 # [ -f "/Users/adrian/.ghcup/env" ] && source "/Users/adrian/.ghcup/env"
@@ -24,8 +27,8 @@ export FNM_COREPACK_ENABLED=true
 . "$HOME/.cargo/env"
 
 # --- ALIASES ---
-alias vim='nvim'
-alias ..='cd ..'
+alias vim="nvim"
+alias ..="cd .."
 alias nx="pnpm exec nx"
 alias ghcs="gh copilot suggest"
 alias ghce="gh copilot explain"
@@ -60,4 +63,3 @@ scp_from_supermuc() {
 
 # --- OTHER UTILITIES ---
 eval "$(zoxide init zsh)"
-
