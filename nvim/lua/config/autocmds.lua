@@ -73,5 +73,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<leader>q", function()
 			vim.diagnostic.setloclist()
 		end, { desc = "Set diagnostics to loclist", noremap = true, silent = true })
+
+		-- map("n", "<leader>cl", vim.lsp.codelens.run)
+		-- map("n", "<leader>sh", vim.lsp.buf.signature_help)
+		-- map("n", "<leader>rn", vim.lsp.buf.rename)
+		-- map("n", "<leader>f", vim.lsp.buf.format)
+		-- map("n", "<leader>ca", vim.lsp.buf.code_action)
+		-- -- all workspace diagnostics
+		-- map("n", "<leader>aa", vim.diagnostic.setqflist)
+		-- -- all workspace errors
+		-- map("n", "<leader>ae", function()
+		--   vim.diagnostic.setqflist({ severity = "E" })
+		-- end)
+		-- -- all workspace warnings
+		-- map("n", "<leader>aw", function()
+		--   vim.diagnostic.setqflist({ severity = "W" })
+		-- end)
 	end,
 })
