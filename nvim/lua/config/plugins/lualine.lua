@@ -1,5 +1,3 @@
-local colors = require("config.utils.color").colors()
-
 return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = {
@@ -10,22 +8,7 @@ return {
 	opts = {
 		options = {
 			icons_enabled = true,
-			theme = {
-				normal = {
-					a = { fg = colors.dark0_hard, bg = colors.neutral_blue },
-					b = { fg = colors.light1, bg = colors.dark1 },
-					c = { fg = colors.light1, bg = colors.dark0 },
-				},
-				insert = { a = { fg = colors.dark0_hard, bg = colors.neutral_green } },
-				visual = { a = { fg = colors.dark0_hard, bg = colors.neutral_yellow } },
-				replace = { a = { fg = colors.dark0_hard, bg = colors.neutral_red } },
-				command = { a = { fg = colors.dark0_hard, bg = colors.neutral_purple } },
-				inactive = {
-					a = { fg = colors.light1, bg = colors.dark0 },
-					b = { fg = colors.light1, bg = colors.dark0 },
-					c = { fg = colors.light1, bg = colors.dark0 },
-				},
-			},
+			theme = "auto",
 			globalstatus = true,
 			disabled_filetypes = { statusline = { "dashboard", "alpha" } },
 			component_separators = { left = "", right = "" },
@@ -37,7 +20,6 @@ return {
 				{
 					"branch",
 					icon = "",
-					color = { fg = colors.light1, bg = colors.dark1 },
 				},
 				"diff",
 				"diagnostics",

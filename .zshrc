@@ -38,14 +38,6 @@ export PROMPT="[%*%f] %{%F{cyan}%}%n%{%F{reset_color}%}:%{%F{green}%}%~%{%F{rese
 export COLORTERM=truecolor
 
 # --- FUNCTIONS ---
-pdf () {
-  if [ -z "$1" ]; then
-    ls *.pdf | head -n 1 | xargs open;
-  else
-    ls *.pdf | grep "$1" | head -n 1 | xargs open;
-  fi
-}
-
 scp_supermuc() {
     local source="$1"
     local dest="$2"
