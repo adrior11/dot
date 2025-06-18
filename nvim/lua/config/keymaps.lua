@@ -2,6 +2,38 @@ local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+---@return nil
+local function switch_c_header()
+	local file = vim.api.nvim_buf_get_name(0)
+	if file == "" then
+		return -- no name; just bail out
+	end
+
+	-- Decide which counterpart we need
+	local target
+	if file:match("%.c$") then
+		target = file:gsub("%.c$", ".h")
+	elseif file:match("%.h$") then
+		target = file:gsub("%.h$", ".c")
+	else
+		Snacks.notify("Not a .c or .h file", { level = "info", title = "Source ↔ Header" })
+		return
+	end
+
+	-- Jump if it exists
+	if vim.fn.filereadable(target) == 1 then
+		vim.cmd.edit(vim.fn.fnameescape(target))
+	else
+		Snacks.notify(
+			{ "No matching file found:", vim.fn.fnamemodify(target, ":~:.") },
+			{ level = "warn", title = "Source ↔ Header" }
+		)
+	end
+end
+
+-- Switch between C source and header files
+vim.keymap.set("n", "gh", switch_c_header, { desc = "Switch between .c and .h", noremap = true, silent = true })
+
 -- Copy (line) to system clipboard in normal mode
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>yy", '"+yy')
