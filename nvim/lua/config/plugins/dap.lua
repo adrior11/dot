@@ -1,18 +1,23 @@
 return {
 	"mfussenegger/nvim-dap",
+	dependencies = {
+		"rcarriga/nvim-dap-ui",
+	},
 	config = function()
 		local dap = require("dap")
-		local widgets = require("dap.ui.widgets")
-		local repl = require("dap.repl")
-		local sidebar = widgets.sidebar(widgets.scopes)
+		local dapui = require("dapui")
 
 		dap.listeners.before.attach.dapui_config = function()
-			sidebar.open()
-			repl.open()
+			dapui.open()
 		end
 		dap.listeners.before.launch.dapui_config = function()
-			repl.open()
-			sidebar.open()
+			dapui.open()
+		end
+		dap.listeners.before.event_terminated.dapui_config = function()
+			dapui.close()
+		end
+		dap.listeners.before.event_exited.dapui_config = function()
+			dapui.close()
 		end
 
 		dap.adapters.lldb = {
@@ -52,7 +57,6 @@ return {
 				args = function()
 					return vim.fn.split(vim.fn.input("Arguments: "), " ")
 				end,
-
 				-- Optional: Inherit environment variables
 				env = function()
 					local variables = {}
@@ -61,35 +65,14 @@ return {
 					end
 					return variables
 				end,
-				initCommands = function()
-					-- Find out where to look for the pretty printer Python module
-					local rustc_sysroot = vim.fn.trim(vim.fn.system("rustc --print sysroot"))
-
-					local script_import = 'command script import "'
-						.. rustc_sysroot
-						.. '/lib/rustlib/etc/lldb_lookup.py"'
-					local commands_file = rustc_sysroot .. "/lib/rustlib/etc/lldb_commands"
-
-					local commands = {}
-					local file = io.open(commands_file, "r")
-					if file then
-						for line in file:lines() do
-							table.insert(commands, line)
-						end
-						file:close()
-					end
-					table.insert(commands, 1, script_import)
-
-					return commands
-				end,
 			},
 		}
 
 		dap.configurations.scala = {
 			{
+				name = "RunOrTest",
 				type = "scala",
 				request = "launch",
-				name = "RunOrTest",
 				metals = {
 					runType = "runOrTestFile",
 					args = function()
@@ -98,9 +81,9 @@ return {
 				},
 			},
 			{
+				name = "Test Target",
 				type = "scala",
 				request = "launch",
-				name = "Test Target",
 				metals = {
 					runType = "testTarget",
 				},
@@ -177,19 +160,6 @@ return {
 				require("dap").step_out()
 			end,
 			desc = "DAP Step out",
-		},
-		{
-			"<leader>dr",
-			function()
-				require("dap.repl").open()
-			end,
-		},
-		{
-			"<leader>ds",
-			function()
-				require("dap.ui.widgets").sidebar(require("dap.ui.widgets").scopes).open()
-			end,
-			desc = "DAP Show scopes",
 		},
 	},
 }
