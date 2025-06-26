@@ -5,11 +5,15 @@ return {
 		chunk = {
 			enable = true,
 			use_treesitter = true,
-			style = {},
+			style = {
+				vim.api.nvim_get_hl(0, { name = "Title" }),
+			},
 		},
 		indent = {
 			enable = true,
-			style = {},
+			style = {
+				vim.api.nvim_get_hl(0, { name = "LineNr" }),
+			},
 		},
 		blank = {
 			enable = false,

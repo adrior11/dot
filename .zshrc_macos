@@ -1,6 +1,12 @@
 source ~/.extra
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# --- ALIASES ---
+alias start-skhd="skhd -c ~/.config/skhd/skhdrc &"
+alias nx="pnpm exec nx"
+alias ghcs="gh copilot suggest"
+alias ghce="gh copilot explain"
+
 # --- DOCKER AND COLIMA CONFIGURATION ---
 # Set the DOCKER_HOST to point to Colima's Docker socket
 export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
@@ -8,33 +14,28 @@ export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
 # Override the Docker socket path for Testcontainers
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 
-# --- RUBY SETUP ---
-if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
-  export PATH=`gem environment gemdir`/bin:$PATH
-fi
-export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
-
 # --- PATH CONFIGURATION ---
 export PATH="$HOME/.local/bin:$PATH"
 
-# Add llvm build tools to PATH
+# Setting PATH for llvm tools
+export LLVM_PROFDATA="/opt/homebrew/opt/llvm/bin/llvm-profdata"
+export LLVM_COV="/opt/homebrew/opt/llvm/bin/llvm-cov"
 export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 
 # Add Google Cloud SDK to PATH for gcloud command line tools
 export PATH=/opt/homebrew/share/google-cloud-sdk/bin:$PATH
 
-# Add paths for libraries (needed for compiling/linking certain applications)
+# Add paths for libraries
 export LIBRARY_PATH="$LIBRARY_PATH:/opt/local/lib:/usr/local/lib:/opt/homebrew/lib"
 
-# Setting PATH for specific Python frameworks
+# Setting PATH for Python
 export PATH="/opt/homebrew/opt/python@3.13/bin:$PATH"
 
-# Set the JAVA_HOME and add Java to Path 
+# Setting PATH and JAVA_HOME for OpenJDK 21
 export JAVA_HOME="/opt/homebrew/opt/openjdk@21"
 export PATH=$JAVA_HOME/bin:$PATH
 
-# Setting PATH for Coursier for Scala
+# Setting PATH for Coursier & Scala
 export PATH="$PATH:/Users/schneiderad/Library/Application Support/Coursier/bin"
 
 # Setting PATH for Erlang, Elixir & Pheonix
@@ -44,5 +45,22 @@ export PATH=$HOME//opt/homebrew/bin:$PATH
 # Setting PATH for love2d
 export PATH=$HOME//Applications/love.app/Contents/MacOS/love:$PATH
 
-# --- ALIASES ---
-alias start-skhd="skhd -c ~/.config/skhd/skhdrc &"
+# Setting PATH for Ruby
+if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
+  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+  export PATH=`gem environment gemdir`/bin:$PATH
+fi
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+
+# --- NODE.JS AND RELATED TOOLS ---
+# Node.js configuration regarding IPv6 resolution
+[[ $NODE_OPTIONS != *"--dns-result-order=ipv4first"* ]] && export NODE_OPTIONS="${NODE_OPTIONS:+$NODE_OPTIONS }--dns-result-order=ipv4first"
+
+# Initialize fnm environment for Node.js version management
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+# Allow fnm to manage pnpm transparently and automatically install Node.js with Corepack
+export FNM_COREPACK_ENABLED=true
+
+# Disable TUI for Nx CLI
+export NX_TUI=false
