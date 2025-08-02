@@ -1,9 +1,8 @@
 # --- OPERATING SYSTEM-SPECIFIC CONFIGURATIONS ---
 if [[ "$OSTYPE" == "darwin"* ]]; then
-    source ~/.zshrc_macos
-    source ~/.supermuc
+    source ~/.dot/.zshrc_macos
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    source ~/.zshrc_linux
+    source ~/.dot/.zshrc_linux
 fi
 
 # --- LANGUAGE ENVIRONMENTS ---

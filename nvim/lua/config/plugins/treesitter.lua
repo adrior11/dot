@@ -22,6 +22,7 @@ local PARSERS = {
 	"luadoc",
 	"markdown",
 	"markdown_inline",
+	"prisma",
 	"python",
 	"ruby",
 	"rust",
