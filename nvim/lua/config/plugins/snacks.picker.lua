@@ -1,5 +1,3 @@
--- TODO: add equivalent for telescope-import
-
 local function open_harpoon_picker()
 	local harpoon = require("harpoon")
 	local list = harpoon:list()
@@ -71,8 +69,8 @@ return {
 					ft = nil, -- filetype for highlighting
 				},
 				file = {
-					filename_first = false,
-					truncate = 80,
+					filename_first = true,
+					truncate = 1000,
 					filename_only = false,
 					icon_width = 2,
 					git_status_hl = true,
