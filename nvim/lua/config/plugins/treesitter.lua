@@ -24,11 +24,12 @@ local PARSERS = {
 	"markdown_inline",
 	"prisma",
 	"python",
+	"regex",
 	"ruby",
 	"rust",
 	"scala",
 	"sql",
-	"swift",
+	-- "swift",
 	"terraform",
 	"toml",
 	"tsx",
@@ -42,19 +43,22 @@ local PARSERS = {
 
 return {
 	"nvim-treesitter/nvim-treesitter",
-	event = { "BufReadPost", "BufNewFile" },
+	lazy = false,
+	priority = 1000,
 	build = ":TSUpdate",
-	cmd = "TSInstallInfo",
 	opts = {
 		ensure_installed = PARSERS,
-		sync_install = true,
-		auto_install = true,
+		sync_install = false,
+		auto_install = false,
 		context_commentstring = {
 			enable = true,
 			enable_autocmd = false,
 		},
-		highlight = {
-			enable = true,
-		},
+		-- highlight = {
+		-- 	enable = true,
+		-- },
 	},
+	config = function(_, opts)
+		require("nvim-treesitter.configs").setup(opts)
+	end,
 }

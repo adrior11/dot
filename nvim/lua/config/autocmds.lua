@@ -51,6 +51,20 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
+-- enforce tree-sitter for tsx/jsx files
+vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+	pattern = { "*.tsx", "*.jsx" },
+	callback = function(args)
+		local ft = vim.bo[args.buf].filetype
+		local ok, parsers = pcall(require, "nvim-treesitter.parsers")
+		if not ok then
+			return
+		end
+		local lang = parsers.ft_to_lang(ft)
+		pcall(vim.treesitter.start, args.buf, lang)
+	end,
+})
+
 -- LSP keymaps
 vim.api.nvim_create_autocmd("LspAttach", {
 	desc = "LSP Actions",
