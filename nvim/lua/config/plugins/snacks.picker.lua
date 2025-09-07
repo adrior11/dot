@@ -72,7 +72,7 @@ return {
 				},
 				file = {
 					filename_first = false,
-					truncate = 40,
+					truncate = 80,
 					filename_only = false,
 					icon_width = 2,
 					git_status_hl = true,
@@ -449,6 +449,13 @@ return {
 			desc = "Visual selection or word",
 			mode = { "n", "x" },
 		},
+		{
+			"<leader>fq",
+			function()
+				Snacks.picker.qflist()
+			end,
+			desc = "Quickfix List",
+		},
 		-- LSP
 		{
 			"gd",
@@ -499,6 +506,28 @@ return {
 				Snacks.picker.lsp_workspace_symbols()
 			end,
 			desc = "LSP Workspace Symbols",
+		},
+		-- LazyGit
+		{
+			"<leader>gg",
+			function()
+				Snacks.lazygit.open()
+			end,
+			desc = "LaztyGit",
+		},
+		{
+			"<leader>gl",
+			function()
+				Snacks.lazygit.log()
+			end,
+			desc = "LaztyGit Log",
+		},
+		{
+			"<leader>gf",
+			function()
+				Snacks.lazygit.log_file()
+			end,
+			desc = "LaztyGit log file",
 		},
 	},
 }

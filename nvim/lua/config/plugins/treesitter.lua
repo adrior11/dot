@@ -49,6 +49,10 @@ return {
 		ensure_installed = PARSERS,
 		sync_install = true,
 		auto_install = true,
+		context_commentstring = {
+			enable = true,
+			enable_autocmd = false,
+		},
 		highlight = {
 			enable = true,
 		},

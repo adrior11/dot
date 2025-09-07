@@ -8,7 +8,7 @@ return {
 		debug = { enabled = false },
 		git = { enabled = true },
 		gitbrowse = { enabled = true },
-		lazygit = { enabled = false },
+		lazygit = { enabled = true },
 		notify = { enabled = true },
 		notifier = { enabled = true },
 		quickfile = { enabled = true },
