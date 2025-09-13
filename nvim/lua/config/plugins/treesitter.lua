@@ -54,9 +54,10 @@ return {
 			enable = true,
 			enable_autocmd = false,
 		},
-		-- highlight = {
-		-- 	enable = true,
-		-- },
+		highlight = {
+			additional_vim_regex_highlighting = false,
+			enable = true,
+		},
 	},
 	config = function(_, opts)
 		require("nvim-treesitter.configs").setup(opts)
