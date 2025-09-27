@@ -6,8 +6,8 @@ alias ghcs="gh copilot suggest"
 alias ghce="gh copilot explain"
 
 # --- DOCKER AND COLIMA CONFIGURATION ---
-# Set the DOCKER_HOST to point to Orbstack's Docker socket
-export DOCKER_HOST=unix://${HOME}/.orbstack/run/docker.sock
+# Set the DOCKER_HOST to point to Colima's Docker socket
+export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
 
 # Override the Docker socket path for Testcontainers
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
