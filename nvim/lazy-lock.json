@@ -57,6 +57,7 @@
   "rest.nvim": { "branch": "main", "commit": "de9726ab956e30202aafbcdea83c1d6bffe54227" },
   "rustaceanvim": { "branch": "master", "commit": "e9c5aaba16fead831379d5f44617547a90b913c7" },
   "snacks.nvim": { "branch": "main", "commit": "5e0e8698526f350f1280ad1ef7a8670f857c9445" },
+  "tailwind-sorter.nvim": { "branch": "main", "commit": "717e5c9761ed8334dadbb9357df7d826aae97b92" },
   "tailwind-tools": { "branch": "master", "commit": "fbe982901d4508b0dcd80e07addf0fcb6dab6c49" },
   "todo-comments.nvim": { "branch": "main", "commit": "304a8d204ee787d2544d8bc23cd38d2f929e7cc5" },
   "treesj": { "branch": "main", "commit": "4770492244ccecdc9b01e0e81fa8f2f6b4a23841" },

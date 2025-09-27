@@ -1,5 +1,7 @@
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+export CLICOLOR=1
+
 # --- ALIASES ---
 alias nx="pnpm exec nx"
 alias ghcs="gh copilot suggest"

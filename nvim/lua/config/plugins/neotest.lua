@@ -1,3 +1,5 @@
+local util = require("config.utils.neotest_vitest")
+
 return {
 	"nvim-neotest/neotest",
 	dependencies = {
@@ -7,6 +9,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		"rcasia/neotest-java",
 		"nvim-neotest/neotest-plenary",
+		"marilari88/neotest-vitest",
 	},
 	keys = {
 		{
@@ -18,11 +21,6 @@ return {
 			"<leader>nO",
 			"<cmd>Neotest output-panel<cr>",
 			desc = "Show test output panel",
-		},
-		{
-			"<leader>no",
-			"<cmd>Neotest output<cr>",
-			desc = "Show test output",
 		},
 		{
 			"<leader>nr",
@@ -74,6 +72,14 @@ return {
 				require("rustaceanvim.neotest"),
 				require("neotest-java"),
 				require("neotest-plenary"),
+				require("neotest-vitest")({
+					vitestCommand = util.vitest_cmd(),
+					cwd = function(node_or_path)
+						local p = type(node_or_path) == "table" and node_or_path.path or node_or_path
+						return util.artifact_root(p)
+					end,
+					is_test_file = util.is_test_file,
+				}),
 			},
 		})
 	end,
