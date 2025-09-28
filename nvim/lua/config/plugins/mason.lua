@@ -8,7 +8,6 @@ local PACKAGES = {
 	"json-lsp",
 	"lua-language-server",
 	"marksman",
-	-- "ruby-lsp",
 	"sqls",
 	"tailwindcss-language-server",
 	"texlab",
