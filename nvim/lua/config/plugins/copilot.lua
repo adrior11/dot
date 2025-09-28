@@ -8,6 +8,9 @@ return {
 		},
 		suggestion = { enabled = false },
 		panel = { enabled = false },
+		should_attach = function(_, _)
+			return true
+		end,
 	},
 	keys = {
 		{

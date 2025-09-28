@@ -4,6 +4,7 @@ return {
 		"MunifTanjim/nui.nvim",
 		"letieu/harpoon-lualine",
 		"kyazdani42/nvim-web-devicons",
+		"AndreM222/copilot-lualine",
 	},
 	opts = {
 		options = {
@@ -22,6 +23,7 @@ return {
 					icon = "",
 				},
 				"diff",
+				"copilot",
 				"diagnostics",
 			},
 			lualine_c = {
