@@ -2,7 +2,6 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # --- GENERAL CLI CONFIGURATION ---
 export CLICOLOR=1
-export PGCLIENTENCODING=utf8
 
 # --- ALIASES ---
 alias nx="pnpm exec nx"

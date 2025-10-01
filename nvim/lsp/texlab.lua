@@ -9,10 +9,10 @@ return {
 			rootDirectory = nil,
 			-- auxDirectory = ".",
 			build = {
-				executable = "latexmk",
-				args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+				executable = "tectonic",
+				args = { "-X", "compile", "%f", "--synctex" },
 				onSave = true,
-				forwardSearchAfter = false,
+				forwardSearchAfter = true,
 			},
 			forwardSearch = {
 				executable = "zathura",

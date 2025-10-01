@@ -41,7 +41,7 @@ end
 ---@param path string
 ---@return boolean
 function M.is_test_file(path)
-	return path:match("/src/.*%.test%.ts$") ~= nil
+	return path:match("/src/.*%.test%.ts$") ~= nil or path:match("/src/.*%.int%-test%.ts$") ~= nil
 end
 
 return M

@@ -14,6 +14,7 @@ return {
 			java = { "google-java-format" },
 			javascript = { "biome-organize-imports", "biome" },
 			json = { "prettier" },
+			tex = { "tex-fmt" },
 			lua = { "stylua" },
 			sql = { "sqruff" },
 			ruby = { "rubyfmt" },
