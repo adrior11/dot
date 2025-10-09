@@ -22,6 +22,7 @@ return {
 			swift = { "swift_format" },
 			typescript = { "biome-organize-imports", "biome" },
 			typescriptreact = { "biome-organize-imports", "biome" },
+			zig = { "zigfmt" },
 		},
 		lsp_fallback = true,
 	},
