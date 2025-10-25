@@ -31,8 +31,8 @@ export LIBRARY_PATH="$LIBRARY_PATH:/opt/local/lib:/usr/local/lib:/opt/homebrew/l
 # Setting PATH for Python
 export PATH="/opt/homebrew/opt/python@3.13/bin:$PATH"
 
-# Setting PATH and JAVA_HOME for OpenJDK 21
-export JAVA_HOME="/opt/homebrew/opt/openjdk@21"
+# Setting PATH and JAVA_HOME for OpenJDK 17
+export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
 export PATH=$JAVA_HOME/bin:$PATH
 
 # Setting PATH for Coursier & Scala

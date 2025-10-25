@@ -6,6 +6,7 @@ local PACKAGES = {
 	"elixir-ls",
 	"gopls",
 	"json-lsp",
+	"kotlin-lsp",
 	"lua-language-server",
 	"marksman",
 	"sqls",
