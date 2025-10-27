@@ -26,6 +26,15 @@ return {
 			name = "lldb",
 		}
 
+		dap.adapters["pwa-node"] = {
+			type = "server",
+			port = "${port}",
+			executable = {
+				command = "js-debug-adapter",
+				args = { "${port}" },
+			},
+		}
+
 		dap.configurations.cpp = {
 			{
 				name = "Launch",
@@ -87,6 +96,28 @@ return {
 				metals = {
 					runType = "testTarget",
 				},
+			},
+		}
+
+		dap.configurations.typescript = {
+			{
+				name = "Launch",
+				type = "pwa-node",
+				request = "launch",
+				cwd = "${workspaceFolder}",
+				runtimeExecutable = "pnpm",
+				args = function()
+					return vim.fn.split(vim.fn.input("Arguments: "), " ")
+				end,
+				autoAttachChildProcesses = true,
+				console = "integratedTerminal",
+				internalConsoleOptions = "neverOpen",
+				sourceMaps = true,
+				resolveSourceMapLocations = {
+					"${workspaceFolder}/**",
+					"!**/node_modules/**",
+				},
+				skipFiles = { "<node_internals>/**" },
 			},
 		}
 	end,

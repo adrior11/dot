@@ -39,7 +39,10 @@ function M.copy_buffer_path_to_clipboard()
 		return
 	end
 	vim.fn.setreg("+", file)
-	Snacks.notify("Copied to clipboard: " .. vim.fn.fnamemodify(file, ":~:."), { level = "info", title = "Copy Path" })
+	Snacks.notify(
+		"Copied '" .. vim.fn.fnamemodify(file, ":~:.") .. "' to the clipboard.",
+		{ level = "info", title = "Copy Path" }
+	)
 end
 
 return M

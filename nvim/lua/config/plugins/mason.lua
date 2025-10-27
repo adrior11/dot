@@ -5,6 +5,7 @@ local PACKAGES = {
 	"clangd",
 	"elixir-ls",
 	"gopls",
+	"js-debug-adapter",
 	"json-lsp",
 	"kotlin-lsp",
 	"lua-language-server",

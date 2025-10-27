@@ -20,7 +20,7 @@ return {
 		words = { enabled = false },
 		styles = {
 			notifications = {
-				wo = { wrap = true }, -- Wrap notifications
+				wo = { wrap = true },
 			},
 		},
 	},
