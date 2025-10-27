@@ -14,40 +14,50 @@ export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
 # Override the Docker socket path for Testcontainers
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 
+# --- SHADERC AND VULKAN CONFIGURATION ---
+export SHADERC_LIB_DIR="$(brew --prefix)/opt/shaderc/lib"
+export SHADERC_INCLUDE_DIR="$(brew --prefix)/opt/shaderc/include"
+
+export VK_ICD_FILENAMES="$HOME/.local/share/vulkan/icd.d/MoltenVK_icd.json"
+# export VK_LAYER_PATH="$(brew --prefix)/share/vulkan/explicit_layer.d"
+
+export DYLD_LIBRARY_PATH="$(brew --prefix)/lib${DYLD_LIBRARY_PATH:+:$DYLD_LIBRARY_PATH}"
+export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib"
+
 # --- PATH CONFIGURATION ---
 export PATH="$HOME/.local/bin:$PATH"
 
 # Setting PATH for llvm tools
-export LLVM_PROFDATA="/opt/homebrew/opt/llvm/bin/llvm-profdata"
-export LLVM_COV="/opt/homebrew/opt/llvm/bin/llvm-cov"
-export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LLVM_PROFDATA="$(brew --prefix)/opt/llvm/bin/llvm-profdata"
+export LLVM_COV="$(brew --prefix)/opt/llvm/bin/llvm-cov"
+export PATH="$(brew --prefix)/opt/llvm/bin:$PATH"
 
 # Add Google Cloud SDK to PATH for gcloud command line tools
-export PATH=/opt/homebrew/share/google-cloud-sdk/bin:$PATH
+export PATH=$(brew --prefix)/share/google-cloud-sdk/bin:$PATH
 
 # Add paths for libraries
-export LIBRARY_PATH="$LIBRARY_PATH:/opt/local/lib:/usr/local/lib:/opt/homebrew/lib"
+export LIBRARY_PATH="$LIBRARY_PATH:/opt/local/lib:/usr/local/lib:$(brew --prefix)/lib"
 
 # Setting PATH for Python
-export PATH="/opt/homebrew/opt/python@3.13/bin:$PATH"
+export PATH="$(brew --prefix)/opt/python@3.13/bin:$PATH"
 
 # Setting PATH and JAVA_HOME for OpenJDK 17
-export JAVA_HOME="/opt/homebrew/opt/openjdk@17"
+export JAVA_HOME="$(brew --prefix)/opt/openjdk@17"
 export PATH=$JAVA_HOME/bin:$PATH
 
 # Setting PATH for Coursier & Scala
 export PATH="$PATH:$HOME/Library/Application Support/Coursier/bin"
 
 # Setting PATH for Erlang, Elixir & Pheonix
-export PATH=$HOME//opt/homebrew/Cellar/erlang/27.3.2/lib/erlang/erts-15.2.5/bin:$PATH
-export PATH=$HOME//opt/homebrew/bin:$PATH
+export PATH=$HOME/$(brew --prefix)/Cellar/erlang/27.3.2/lib/erlang/erts-15.2.5/bin:$PATH
+export PATH=$HOME/$(brew --prefix)/bin:$PATH
 
 # Setting PATH for love2d
 export PATH=$HOME//Applications/love.app/Contents/MacOS/love:$PATH
 
 # Setting PATH for Ruby
-if [ -d "/opt/homebrew/opt/ruby/bin" ]; then
-  export PATH=/opt/homebrew/opt/ruby/bin:$PATH
+if [ -d "$(brew --prefix)/opt/ruby/bin" ]; then
+  export PATH=$(brew --prefix)/opt/ruby/bin:$PATH
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
