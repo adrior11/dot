@@ -1,3 +1,5 @@
+local util = require("config.utils.dap_args")
+
 return {
 	"mfussenegger/nvim-dap",
 	dependencies = {
@@ -35,7 +37,7 @@ return {
 			},
 		}
 
-		dap.configurations.cpp = {
+		dap.configurations.c = {
 			{
 				name = "Launch",
 				type = "lldb",
@@ -46,12 +48,12 @@ return {
 				cwd = "${workspaceFolder}",
 				stopOnEntry = false,
 				args = function()
-					return vim.fn.split(vim.fn.input("Arguments: "), " ")
+					return util.get_or_prompt()
 				end,
 			},
 		}
 
-		dap.configurations.c = dap.configurations.cpp
+		dap.configurations.cpp = dap.configurations.c
 
 		dap.configurations.rust = {
 			{
@@ -64,9 +66,8 @@ return {
 				cwd = "${workspaceFolder}",
 				stopOnEntry = false,
 				args = function()
-					return vim.fn.split(vim.fn.input("Arguments: "), " ")
+					return util.get_or_prompt()
 				end,
-				-- Optional: Inherit environment variables
 				env = function()
 					local variables = {}
 					for k, v in pairs(vim.fn.environ()) do
@@ -85,7 +86,7 @@ return {
 				metals = {
 					runType = "runOrTestFile",
 					args = function()
-						return vim.fn.split(vim.fn.input("Arguments: "), " ")
+						return util.get_or_prompt()
 					end,
 				},
 			},
@@ -107,7 +108,7 @@ return {
 				cwd = "${workspaceFolder}",
 				runtimeExecutable = "pnpm",
 				args = function()
-					return vim.fn.split(vim.fn.input("Arguments: "), " ")
+					return util.get_or_prompt()
 				end,
 				autoAttachChildProcesses = true,
 				console = "integratedTerminal",
@@ -146,6 +147,7 @@ return {
 		{
 			"<f5>",
 			function()
+				util.clear_cache()
 				require("dap").continue()
 			end,
 			desc = "DAP Continue/Start",
