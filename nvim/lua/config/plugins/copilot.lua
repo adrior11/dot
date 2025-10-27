@@ -14,7 +14,7 @@ return {
 	},
 	keys = {
 		{
-			"<leader>cp",
+			"<leader>cP",
 			"<cmd>Copilot panel<cr>",
 			desc = "Open Copilot panel",
 		},
