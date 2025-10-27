@@ -112,23 +112,4 @@ return {
 			syncPackages(packages)
 		end, 3000)
 	end,
-
-	-- 		local lspconfig = require("lspconfig")
-	-- 		local util = require("lspconfig/util")
-	-- 		local capabilities = vim.lsp.protocol.make_client_capabilities()
-	-- 		capabilities.textDocument.publishDiagnostics = {
-	-- 			relatedInformation = true,
-	-- 		}
-	--
-	-- 		lspconfig.sourcekit.setup({
-	-- 			capabilities = capabilities,
-	-- 			root_dir = function(fname)
-	-- 				return util.root_pattern("Package.swift", "*.xcodeproj")(fname)
-	-- 					or vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
-	-- 			end,
-	-- 			on_attach = function(_, _)
-	-- 				local function buf_set_option(...) end
-	-- 				buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-	-- 			end,
-	-- 		})
 }
