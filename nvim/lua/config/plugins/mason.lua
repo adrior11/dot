@@ -4,6 +4,7 @@ local PACKAGES = {
 	"biome",
 	"clangd",
 	"elixir-ls",
+	"glsl_analyzer",
 	"gopls",
 	"js-debug-adapter",
 	"json-lsp",

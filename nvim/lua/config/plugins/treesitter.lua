@@ -8,6 +8,7 @@ local PARSERS = {
 	"dockerfile",
 	"eex",
 	"elixir",
+	"glsl",
 	"go",
 	"graphql",
 	"groovy",
