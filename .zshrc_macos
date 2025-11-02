@@ -32,14 +32,18 @@ export LLVM_PROFDATA="$(brew --prefix)/opt/llvm/bin/llvm-profdata"
 export LLVM_COV="$(brew --prefix)/opt/llvm/bin/llvm-cov"
 export PATH="$(brew --prefix)/opt/llvm/bin:$PATH"
 
-# Add Google Cloud SDK to PATH for gcloud command line tools
-export PATH=$(brew --prefix)/share/google-cloud-sdk/bin:$PATH
+# Setting PATH for Xcode Command Line Tools
+export PATH="/Library/Developer/CommandLineTools/usr/bin:$PATH"
+export CC="$(xcrun --sdk macosx --find clang)"
+export LLDB="$(xcrun --sdk macosx --find lldb)"
+export SDKROOT="$(xcrun --sdk macosx --show-sdk-path)"
 
 # Add paths for libraries
 export LIBRARY_PATH="$LIBRARY_PATH:/opt/local/lib:/usr/local/lib:$(brew --prefix)/lib"
 
 # Setting PATH for Python
-export PATH="$(brew --prefix)/opt/python@3.13/bin:$PATH"
+export PYTHON="/usr/bin/python3"
+export PYTHONPATH="/Library/Developer/CommandLineTools/Library/PrivateFrameworks/LLDB.framework/Resources/Python"
 
 # Setting PATH and JAVA_HOME for OpenJDK 17
 export JAVA_HOME="$(brew --prefix)/opt/openjdk@17"

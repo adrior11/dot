@@ -19,6 +19,8 @@ local PARSERS = {
 	"javadoc",
 	"javascript",
 	"json",
+	"jsonc",
+	"just",
 	"kotlin",
 	"lua",
 	"luadoc",
