@@ -15,6 +15,7 @@ alias ..="cd .."
 # --- TERMINAL AND DISPLAY SETTINGS ---
 export PROMPT="[%*%f] %{%F{cyan}%}%n%{%F{reset_color}%}:%{%F{green}%}%~%{%F{reset_color}%} $ "
 export COLORTERM=truecolor
+export HISTSIZE=100000
 
 # --- OTHER UTILITIES ---
 eval "$(zoxide init zsh)"

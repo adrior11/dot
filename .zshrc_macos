@@ -38,6 +38,9 @@ export CC="$(xcrun --sdk macosx --find clang)"
 export LLDB="$(xcrun --sdk macosx --find lldb)"
 export SDKROOT="$(xcrun --sdk macosx --show-sdk-path)"
 
+# Setting PATH for Homebrew git installation
+export PATH="$(brew --prefix)/opt/git/bin:/opt/homebrew/bin:$PATH"
+
 # Add paths for libraries
 export LIBRARY_PATH="$LIBRARY_PATH:/opt/local/lib:/usr/local/lib:$(brew --prefix)/lib"
 

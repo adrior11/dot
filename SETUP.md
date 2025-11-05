@@ -2,6 +2,8 @@
 
 ## Symbolic Links
 ```bash
+ln -s ~/.dot/.tmux.conf ~/
+ln -s ~/.dot/.vimrc ~/
 ln -s ~/.dot/.zshrc ~/
 ln -s ~/.dot/skhd/.skhdrc ~/
 ls -s ~/.dot/yabai/.yabairc ~/
