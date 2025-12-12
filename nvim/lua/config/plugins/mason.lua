@@ -1,7 +1,6 @@
 local PACKAGES = {
 	"basedpyright",
 	"bash-language-server",
-	"biome",
 	"clangd",
 	"elixir-ls",
 	"glsl_analyzer",
