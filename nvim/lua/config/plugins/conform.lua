@@ -14,6 +14,7 @@ return {
 			java = { "google-java-format" },
 			javascript = { "biome-organize-imports", "biome" },
 			json = { "prettier" },
+			kotlin = { "ktlint" },
 			lua = { "stylua" },
 			python = { "ruff_fix", "ruff_format", "ruff_organize_imports" },
 			ruby = { "rubyfmt" },

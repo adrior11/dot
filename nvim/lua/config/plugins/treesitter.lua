@@ -22,6 +22,7 @@ local PARSERS = {
 	"jsonc",
 	"just",
 	"kotlin",
+	"llvm",
 	"lua",
 	"luadoc",
 	"markdown",
