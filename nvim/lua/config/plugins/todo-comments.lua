@@ -4,6 +4,9 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = {
 		signs = false,
+		search = {
+			pattern = [[\b(KEYWORDS)(\([^)]*\))?\s*:]],
+		},
 	},
 	keys = {
 		{
