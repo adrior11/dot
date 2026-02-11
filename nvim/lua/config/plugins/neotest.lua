@@ -7,7 +7,6 @@ return {
 		"nvim-lua/plenary.nvim",
 		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
-		"rcasia/neotest-java",
 		"nvim-neotest/neotest-plenary",
 		"marilari88/neotest-vitest",
 	},
@@ -70,7 +69,6 @@ return {
 			log_level = vim.log.levels.DEBUG,
 			adapters = {
 				require("rustaceanvim.neotest"),
-				require("neotest-java"),
 				require("neotest-plenary"),
 				require("neotest-vitest")({
 					vitestCommand = util.vitest_cmd(),
