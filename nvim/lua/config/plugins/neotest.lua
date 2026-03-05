@@ -1,4 +1,4 @@
-local util = require("config.utils.neotest_vitest")
+local util = require("config.utils.neotest_jest")
 
 return {
 	"nvim-neotest/neotest",
@@ -8,7 +8,7 @@ return {
 		"antoinemadec/FixCursorHold.nvim",
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-neotest/neotest-plenary",
-		"marilari88/neotest-vitest",
+		"nvim-neotest/neotest-jest",
 	},
 	keys = {
 		{
@@ -31,7 +31,7 @@ return {
 		{
 			"<leader>nR",
 			function()
-				require("neotest").run.run(vim.fn.expand("%d"))
+				require("neotest").run.run(vim.fn.expand("%"))
 			end,
 			desc = "Run the current file",
 		},
@@ -70,13 +70,14 @@ return {
 			adapters = {
 				require("rustaceanvim.neotest"),
 				require("neotest-plenary"),
-				require("neotest-vitest")({
-					vitestCommand = util.vitest_cmd(),
+				require("neotest-jest")({
+					jestCommand = util.jest_cmd(),
+					jestConfigFile = util.jest_config,
 					cwd = function(node_or_path)
 						local p = type(node_or_path) == "table" and node_or_path.path or node_or_path
-						return util.artifact_root(p)
+						return util.project_root(p)
 					end,
-					is_test_file = util.is_test_file,
+					isTestFile = util.is_test_file,
 				}),
 			},
 		})
