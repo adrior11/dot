@@ -25,10 +25,11 @@ yabai -m config mouse_action2 resize
 yabai -m mouse_drop_action swap
 
 # Exclude from Yabai's management
-yabai -m rule --add app="^Finder$" manage=off
-yabai -m rule --add app="^FaceTime$" manage=off
-yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add app="^Calculator$" manage=off
+yabai -m rule --add app="^Cisco Secure Client$" manage=off
+yabai -m rule --add app="^FaceTime$" manage=off
+yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^Karabiner-Elements$" manage=off
+yabai -m rule --add app="^System Settings$" manage=off
 yabai -m rule --add title="^3D Engine demo$" manage=off
 yabai -m rule --add title="^Test$" manage=off

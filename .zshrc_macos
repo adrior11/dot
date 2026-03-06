@@ -1,3 +1,4 @@
+source ~/.extra
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # --- GENERAL CLI CONFIGURATION ---
@@ -14,39 +15,23 @@ export DOCKER_HOST=unix://${HOME}/.colima/default/docker.sock
 # Override the Docker socket path for Testcontainers
 export TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE=/var/run/docker.sock
 
-# --- SHADERC AND VULKAN CONFIGURATION ---
-export SHADERC_LIB_DIR="$(brew --prefix)/opt/shaderc/lib"
-export SHADERC_INCLUDE_DIR="$(brew --prefix)/opt/shaderc/include"
-
-export VK_ICD_FILENAMES="$HOME/.local/share/vulkan/icd.d/MoltenVK_icd.json"
-# export VK_LAYER_PATH="$(brew --prefix)/share/vulkan/explicit_layer.d"
-
-export DYLD_LIBRARY_PATH="$(brew --prefix)/lib${DYLD_LIBRARY_PATH:+:$DYLD_LIBRARY_PATH}"
-export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib"
-
 # --- PATH CONFIGURATION ---
 export PATH="$HOME/.local/bin:$PATH"
+
+# Setting PATH for Homebrew git installation
+export PATH="$(brew --prefix)/opt/git/bin:/opt/homebrew/bin:$PATH"
 
 # Setting PATH for llvm tools
 export LLVM_PROFDATA="$(brew --prefix)/opt/llvm/bin/llvm-profdata"
 export LLVM_COV="$(brew --prefix)/opt/llvm/bin/llvm-cov"
 export PATH="$(brew --prefix)/opt/llvm/bin:$PATH"
 
-# Setting PATH for Xcode Command Line Tools
-export PATH="/Library/Developer/CommandLineTools/usr/bin:$PATH"
-export CC="$(xcrun --sdk macosx --find clang)"
-export LLDB="$(xcrun --sdk macosx --find lldb)"
-export SDKROOT="$(xcrun --sdk macosx --show-sdk-path)"
-
-# Setting PATH for Homebrew git installation
-export PATH="$(brew --prefix)/opt/git/bin:/opt/homebrew/bin:$PATH"
+# Setting PATH for Python
+export PYTHON="$(brew --prefix)/bin/python3"
+# export PYTHONPATH="/Library/Developer/CommandLineTools/Library/PrivateFrameworks/LLDB.framework/Resources/Python"
 
 # Add paths for libraries
 export LIBRARY_PATH="$LIBRARY_PATH:/opt/local/lib:/usr/local/lib:$(brew --prefix)/lib"
-
-# Setting PATH for Python
-export PYTHON="/usr/bin/python3"
-export PYTHONPATH="/Library/Developer/CommandLineTools/Library/PrivateFrameworks/LLDB.framework/Resources/Python"
 
 # Setting PATH and JAVA_HOME for OpenJDK 17
 export JAVA_HOME="$(brew --prefix)/opt/openjdk@17"
@@ -68,6 +53,22 @@ if [ -d "$(brew --prefix)/opt/ruby/bin" ]; then
   export PATH=`gem environment gemdir`/bin:$PATH
 fi
 export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+
+# Setting PATH for Xcode Command Line Tools
+export PATH="$PATH:/Library/Developer/CommandLineTools/usr/bin"
+export CC="$(xcrun --sdk macosx --find clang)"
+export LLDB="$(xcrun --sdk macosx --find lldb)"
+export SDKROOT="$(xcrun --sdk macosx --show-sdk-path)"
+
+# --- SHADERC AND VULKAN CONFIGURATION ---
+export SHADERC_LIB_DIR="$(brew --prefix)/opt/shaderc/lib"
+export SHADERC_INCLUDE_DIR="$(brew --prefix)/opt/shaderc/include"
+
+export VK_ICD_FILENAMES="$HOME/.local/share/vulkan/icd.d/MoltenVK_icd.json"
+# export VK_LAYER_PATH="$(brew --prefix)/share/vulkan/explicit_layer.d"
+
+export DYLD_LIBRARY_PATH="$(brew --prefix)/lib${DYLD_LIBRARY_PATH:+:$DYLD_LIBRARY_PATH}"
+export DYLD_FALLBACK_LIBRARY_PATH="$(brew --prefix)/lib"
 
 # --- NODE.JS AND RELATED TOOLS ---
 # Node.js configuration regarding IPv6 resolution
