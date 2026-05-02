@@ -60,7 +60,12 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 		if not ok then
 			return
 		end
-		local lang = parsers.ft_to_lang(ft)
+		local lang = ft
+		if vim.treesitter.language and vim.treesitter.language.get_lang then
+			lang = vim.treesitter.language.get_lang(ft) or ft
+		elseif parsers.ft_to_lang then
+			lang = parsers.ft_to_lang(ft)
+		end
 		pcall(vim.treesitter.start, args.buf, lang)
 	end,
 })
