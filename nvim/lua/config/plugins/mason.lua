@@ -2,7 +2,6 @@ local PACKAGES = {
 	"basedpyright",
 	"bash-language-server",
 	"clangd",
-	"eslint_d",
 	"glsl_analyzer",
 	-- "gopls",
 	"js-debug-adapter",
